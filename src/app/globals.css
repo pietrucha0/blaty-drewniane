@@ -1,1 +1,93 @@
 @import "tailwindcss";
+
+@theme {
+  --color-espresso: #16110e;
+  --color-umber: #221813;
+  --color-walnut: #2a1f18;
+  --color-board: #34271f;
+  --color-board-hi: #3d2f25;
+  --color-seam: #4a392d;
+  --color-brass: #d4a373;
+  --color-brass-deep: #c89666;
+  --color-cream: #fbf8f5;
+  --color-sand: #d6cec7;
+  --color-dust: #a89c92;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-espresso);
+  color: var(--color-sand);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "kern";
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-espresso);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+* {
+  scrollbar-color: var(--color-seam) var(--color-espresso);
+  caret-color: var(--color-brass);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+  }
+}
+
+/* Hide horizontal scrollbars on touch rails while keeping them scrollable */
+.rail {
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pencil-mark measurement rule used beside section headings */
+.tick-rule {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-seam) 0 1px,
+    transparent 1px 12px
+  );
+  height: 8px;
+  mask-image: linear-gradient(90deg, #000 70%, transparent);
+}
