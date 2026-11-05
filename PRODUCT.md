@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Next.js 15 (App Router, TypeScript), Tailwind CSS 4, Framer Motion, lucide-react (wybór użytkownika). Cel wdrożenia (hosting) jeszcze nieustalony. Formularz wyceny wysyła JSON na `QUOTE_WEBHOOK_URL`; bez niej proponuje wysłanie e-mailem.
+Next.js 15 (App Router, TypeScript), Tailwind CSS 4, Framer Motion, lucide-react (wybór użytkownika). Cel wdrożenia (hosting) jeszcze nieustalony. Formularz wyceny wysyła zgłoszenia przez Web3Forms (`NEXT_PUBLIC_WEB3FORMS_KEY`, wysyłka z przeglądarki). Rezerwowo przez `QUOTE_WEBHOOK_URL`, a bez obu proponuje wysłanie e-mailem.
 
 ## Users
 

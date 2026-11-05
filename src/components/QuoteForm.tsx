@@ -5,7 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, LoaderCircle, Mail, Send } from "lucide-react";
 import { company, projectTypes } from "@/lib/content";
 
-type Status = "idle" | "sending" | "sent" | "fallback" | "error";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+type Status ="idle" | "sending" | "sent" | "fallback" | "error";
 type Errors = Partial<Record<"name" | "phone" | "type" | "message", string>>;
 
 const field =
@@ -36,6 +38,32 @@ export function QuoteForm() {
     setMailto(link);
 
     setStatus("sending");
+
+    // Primary channel: Web3Forms (client-side by design; the access key is public).
+    if (WEB3FORMS_KEY) {
+      if (data.website) return setStatus("sent"); // honeypot hit: pretend success
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            subject: `Zapytanie o wycenę: ${data.type} — ${data.name}`,
+            from_name: "BlatyDrewniane.eu — formularz",
+            Imię: data.name.trim(),
+            Telefon: data.phone.trim(),
+            "Typ projektu": data.type,
+            "Opis i wymiary": (data.message ?? "").trim() || "—",
+          }),
+        });
+        const json = await res.json().catch(() => ({}));
+        return setStatus(res.ok && json.success ? "sent" : "fallback");
+      } catch {
+        return setStatus("fallback");
+      }
+    }
+
+    // Secondary channel: own API route forwarding to QUOTE_WEBHOOK_URL.
     try {
       const res = await fetch("/api/wycena", {
         method: "POST",
