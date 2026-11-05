@@ -113,7 +113,7 @@ export function Hero() {
       </div>
 
       {/* Mobile species rail */}
-      <div className="pb-28 sm:pb-10 lg:hidden" aria-label="Gatunki drewna">
+      <div className="pb-8 sm:pb-10 lg:hidden" aria-label="Gatunki drewna">
         <ul className="rail flex snap-x gap-2 overflow-x-auto px-4 sm:px-8">
           {species.map((s) => (
             <li key={s.id} className="snap-start">

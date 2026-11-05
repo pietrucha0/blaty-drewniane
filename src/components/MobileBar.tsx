@@ -4,33 +4,67 @@ import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { company } from "@/lib/content";
 
-// Thumb-reach call/quote bar for phones. Steps aside while the contact form is on screen.
+// Slim thumb-reach call/quote bar for phones.
+// Stays out of the way: hidden over the hero (it has its own CTA) and the contact
+// section, tucks away while scrolling down, returns when the visitor scrolls up.
 export function MobileBar() {
-  const [hidden, setHidden] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+  const [inContact, setInContact] = useState(false);
+  const [scrollingDown, setScrollingDown] = useState(false);
 
   useEffect(() => {
-    const target = document.getElementById("kontakt");
-    if (!target) return;
-    const io = new IntersectionObserver(([e]) => setHidden(e.isIntersecting), { threshold: 0.15 });
-    io.observe(target);
-    return () => io.disconnect();
+    const hero = document.getElementById("top");
+    const contact = document.getElementById("kontakt");
+    const observers: IntersectionObserver[] = [];
+    if (hero) {
+      const io = new IntersectionObserver(([e]) => setPastHero(!e.isIntersecting), { threshold: 0 });
+      io.observe(hero);
+      observers.push(io);
+    }
+    if (contact) {
+      const io = new IntersectionObserver(([e]) => setInContact(e.isIntersecting), { threshold: 0.1 });
+      io.observe(contact);
+      observers.push(io);
+    }
+
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) < 8) return;
+      setScrollingDown(y > lastY);
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      observers.forEach((o) => o.disconnect());
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
+
+  const visible = pastHero && !inContact && !scrollingDown;
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-seam bg-espresso/90 px-[max(0.75rem,env(safe-area-inset-left))] pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md transition-transform duration-500 ease-out-expo sm:hidden ${
-        hidden ? "translate-y-full" : "translate-y-0"
+      aria-hidden={!visible}
+      className={`fixed inset-x-0 bottom-0 z-30 border-t border-seam bg-espresso/90 px-[max(0.5rem,env(safe-area-inset-left))] pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-md transition-transform duration-500 ease-out-expo sm:hidden ${
+        visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
     >
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-[auto_1fr] gap-2">
         <a
           href={company.phones[0].href}
-          className="flex items-center justify-center gap-2 border border-cream/30 py-3.5 font-semibold text-cream active:bg-board"
+          tabIndex={visible ? 0 : -1}
+          aria-label={`Zadzwoń: ${company.phones[0].display}`}
+          className="flex h-11 items-center justify-center gap-2 border border-cream/30 px-4 text-sm font-semibold text-cream active:bg-board"
         >
           <Phone className="size-4" aria-hidden />
-          Zadzwoń teraz
+          Zadzwoń
         </a>
-        <a href="#kontakt" className="flex items-center justify-center bg-brass py-3.5 font-semibold text-espresso active:bg-cream">
+        <a
+          href="#kontakt"
+          tabIndex={visible ? 0 : -1}
+          className="flex h-11 items-center justify-center bg-brass text-sm font-semibold text-espresso active:bg-cream"
+        >
           Wycena projektu
         </a>
       </div>
