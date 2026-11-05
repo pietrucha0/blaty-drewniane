@@ -9,6 +9,7 @@ colors:
   board-hi: "#3d2f25"
   seam: "#4a392d"
   brass: "#d4a373"
+  brass-deep: "#c08a58"
   cream: "#fbf8f5"
   sand: "#d6cec7"
   dust: "#a89c92"
@@ -146,6 +147,7 @@ A warm, low-chroma brown ladder from near-black to board-brown, with one brass a
 
 ### Primary
 - **Workshop Brass** (#d4a373): primary buttons, the mobile action bar's quote button, the selected gallery filter, the selected species outline, the active segments of the hardness and tone scales, small icons in lists, the brass dash before hero features, underlined text links, `::selection`, caret and focus rings. Hover on brass fills goes to cream, not to a darker brass.
+- **Brass Deep** (#c08a58): only the hover/focus fill of primary buttons.
 
 ### Neutral
 - **Espresso** (#16110e): the page ground, `theme-color`, input fill, translucent scrims behind labels and the scrolled header (80–90% opacity), and the dark end of every image gradient.
@@ -276,7 +278,7 @@ One easing for everything: ease-out-expo (`cubic-bezier(0.16, 1, 0.3, 1)`). `Mot
 
 ### Do:
 - **Do** cut every frame square (0px) and divide groups with 1px seam (#4a392d) lines or seam-filled 1px gaps.
-- **Do** keep brass (#d4a373) for actions and current state. On hover, brass fills go to cream.
+- **Do** keep brass (#d4a373) for actions and current state. On hover, brass fills deepen to brass-deep.
 - **Do** build species visuals from the real sample-board photos, cropped with `background-size` 320–400% at 58% 50% and a left espresso gradient behind cream names.
 - **Do** put the logo on a cream board label and tag gallery woods with cream labels in label-ink (#5a2e24).
 - **Do** tag every stock image "Zdjęcie poglądowe" (or "Poglądowe" on gallery tiles) in a dust caption on an espresso scrim, flush to a corner.
