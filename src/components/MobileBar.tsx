@@ -55,7 +55,7 @@ export function MobileBar() {
           href={company.phones[0].href}
           tabIndex={visible ? 0 : -1}
           aria-label={`Zadzwoń: ${company.phones[0].display}`}
-          className="flex h-11 items-center justify-center gap-2 border border-cream/30 px-4 text-sm font-semibold text-cream active:bg-board"
+          className="btn btn-outline flex h-11 items-center justify-center gap-2 px-4 text-sm font-semibold"
         >
           <Phone className="size-4" aria-hidden />
           Zadzwoń
@@ -63,7 +63,7 @@ export function MobileBar() {
         <a
           href="#kontakt"
           tabIndex={visible ? 0 : -1}
-          className="flex h-11 items-center justify-center bg-brass text-sm font-semibold text-espresso active:bg-cream"
+          className="btn btn-primary flex h-11 items-center justify-center text-sm font-semibold"
         >
           Wycena projektu
         </a>

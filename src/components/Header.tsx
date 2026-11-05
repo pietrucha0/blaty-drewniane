@@ -63,7 +63,7 @@ export function Header() {
             </a>
             <a
               href="#kontakt"
-              className="hidden bg-brass px-5 py-3 text-sm font-semibold text-espresso transition-colors hover:bg-cream sm:inline-flex"
+              className="btn btn-primary hidden px-5 py-3 text-sm font-semibold sm:inline-flex"
             >
               Wycena projektu
             </a>
@@ -146,7 +146,7 @@ export function Header() {
               <div className="space-y-3 border-t border-seam p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
                 <a
                   href={company.phones[0].href}
-                  className="flex items-center justify-center gap-2 border border-seam py-4 text-cream"
+                  className="btn btn-outline flex items-center justify-center gap-2 py-4"
                 >
                   <Phone className="size-4" aria-hidden />
                   Zadzwoń: {company.phones[0].display}
@@ -154,7 +154,7 @@ export function Header() {
                 <a
                   href="#kontakt"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center bg-brass py-4 font-semibold text-espresso"
+                  className="btn btn-primary flex items-center justify-center py-4 font-semibold"
                 >
                   Wycena projektu
                 </a>

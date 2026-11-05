@@ -56,14 +56,14 @@ export function Hero() {
           <motion.div {...rise(0.3)} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row [@media(max-height:500px)]:mt-4">
             <a
               href="#realizacje"
-              className="group inline-flex items-center justify-center gap-2 bg-brass px-6 py-3.5 font-semibold text-espresso transition-colors hover:bg-cream sm:py-4"
+              className="btn btn-primary group inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold sm:py-4"
             >
               Zobacz nasze realizacje
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </a>
             <a
               href="#kontakt"
-              className="hidden items-center justify-center border border-cream/40 sm:inline-flex px-6 py-3.5 font-semibold sm:py-4 text-cream transition-colors hover:border-brass hover:text-brass"
+              className="btn btn-outline hidden items-center justify-center px-6 py-3.5 font-semibold sm:inline-flex sm:py-4"
             >
               Darmowa wycena
             </a>

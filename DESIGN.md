@@ -226,8 +226,8 @@ All corners are square (0px). This covers buttons, inputs, swatches, images, chi
 Solid and plain, like a stamped tag.
 - **Shape:** square (0px).
 - **Primary:** brass fill, espresso text, 600 weight, 24px horizontal padding, 14px vertical on mobile and 16px from 640px. Header variant is 20px by 12px at 0.875rem. A trailing arrow icon (16px) nudges 4px right on hover when present.
-- **Hover / Focus:** the fill changes to cream. Focus is the global 2px brass outline. On the mobile action bar, the pressed state goes to cream (`active:`).
-- **Outline:** 1px cream border at 40% (30% on the mobile bar), cream text. On hover the border and text go to brass.
+- **Hover / Focus (the plane stroke):** a second fill slides in from the left edge (`scaleX` 0 → 1, 0.55s, ease-out-expo), inset 1px so the button's 1px inset border stays visible above it. The text colour follows 80ms later. On primary, espresso slides over brass and the text and border turn brass. On outline, brass slides in and the text turns espresso. The same end state shows on `:focus-visible`, together with the global 2px brass outline. Hover only applies under `(hover: hover)`. Touch devices get only a 1px press-down on `:active`. With reduced motion the fill appears without the slide. Implemented as `.btn` + `.btn-primary` / `.btn-outline` in `globals.css`.
+- **Outline:** a 1px inset cream border at 40% (an inset box-shadow, not a border), cream text. Hover as above.
 - **Underlined link:** brass text with a 1px brass bottom border and 4px padding below. On hover both go to cream ("Zapytaj o ten gatunek").
 - **Disabled (submit while sending):** 70% opacity, wait cursor, spinner and "Wysyłanie…".
 
