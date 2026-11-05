@@ -174,7 +174,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn btn-primary inline-flex w-full items-center justify-center gap-2 px-6 py-4 font-semibold disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+        className="btn btn-primary btn-noarrow inline-flex w-full items-center justify-center px-6 py-4 font-semibold disabled:cursor-wait disabled:opacity-70 sm:w-auto"
       >
         {status === "sending" ? (
           <>

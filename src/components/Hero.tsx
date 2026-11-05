@@ -56,10 +56,9 @@ export function Hero() {
           <motion.div {...rise(0.3)} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row [@media(max-height:500px)]:mt-4">
             <a
               href="#realizacje"
-              className="btn btn-primary group inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold sm:py-4"
+              className="btn btn-primary inline-flex items-center justify-center px-6 py-3.5 font-semibold sm:py-4"
             >
               Zobacz nasze realizacje
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </a>
             <a
               href="#kontakt"

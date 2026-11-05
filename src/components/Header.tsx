@@ -146,7 +146,7 @@ export function Header() {
               <div className="space-y-3 border-t border-seam p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
                 <a
                   href={company.phones[0].href}
-                  className="btn btn-outline flex items-center justify-center gap-2 py-4"
+                  className="btn btn-outline btn-noarrow flex items-center justify-center py-4"
                 >
                   <Phone className="size-4" aria-hidden />
                   Zadzwoń: {company.phones[0].display}
