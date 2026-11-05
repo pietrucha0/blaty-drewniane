@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T12:00:00Z",
+  "title": "Design System: BlatyDrewniane.eu",
+  "extensions": {
+    "colorMeta": {
+      "espresso": { "role": "neutral", "displayName": "Espresso", "canonical": "oklch(18.3% 0.010 53)", "tonalRamp": ["#0d0b09", "#272321", "#433f3c", "#625c59", "#827c78", "#a39d9a", "#c8c3c0", "#f1eeeb"] },
+      "umber": { "role": "neutral", "displayName": "Umber", "canonical": "oklch(22.0% 0.019 48)", "tonalRamp": ["#0f0a08", "#29221f", "#463e39", "#665b55", "#877a74", "#a79c96", "#cbc2bd", "#f4ede9"] },
+      "walnut": { "role": "neutral", "displayName": "Walnut", "canonical": "oklch(25.0% 0.021 54)", "tonalRamp": ["#0f0a07", "#29221e", "#473e38", "#675b53", "#877a72", "#a79c95", "#ccc2bc", "#f4ede8"] },
+      "board": { "role": "neutral", "displayName": "Board", "canonical": "oklch(28.5% 0.024 53)", "tonalRamp": ["#0f0a07", "#2a221d", "#483d37", "#685a52", "#897a71", "#a99b93", "#cdc2bb", "#f5ece7"] },
+      "board-hi": { "role": "neutral", "displayName": "Board Highlight", "canonical": "oklch(31.8% 0.027 57)", "tonalRamp": ["#0f0a06", "#2b221c", "#483d35", "#695a50", "#897a6f", "#a99b92", "#cdc2b9", "#f6ece6"] },
+      "seam": { "role": "neutral", "displayName": "Seam", "canonical": "oklch(36.0% 0.031 57)", "tonalRamp": ["#100a06", "#2c221b", "#4a3d33", "#6b5a4e", "#8c796c", "#ab9b90", "#cfc1b8", "#f7ece5"] },
+      "brass": { "role": "primary", "displayName": "Workshop Brass", "canonical": "oklch(75.0% 0.086 65)", "tonalRamp": ["#170700", "#361e03", "#583815", "#7c542a", "#9f7347", "#bd9670", "#debd9e", "#ffe9d2"] },
+      "cream": { "role": "neutral", "displayName": "Cream", "canonical": "oklch(98.1% 0.005 68)", "tonalRamp": ["#0c0b0a", "#252422", "#413f3d", "#5f5d5b", "#7f7d7a", "#a09e9c", "#c5c4c2", "#f0eeed"] },
+      "sand": { "role": "neutral", "displayName": "Sand", "canonical": "oklch(85.6% 0.013 64)", "tonalRamp": ["#0d0b08", "#272320", "#443f3a", "#635c57", "#837c76", "#a39d98", "#c8c3be", "#f2eeea"] },
+      "dust": { "role": "neutral", "displayName": "Dust", "canonical": "oklch(70.0% 0.020 62)", "tonalRamp": ["#0e0a07", "#29231e", "#463e37", "#655c53", "#867b72", "#a69c94", "#cbc2bc", "#f4ede8"] },
+      "label-ink": { "role": "tertiary", "displayName": "Label Ink", "canonical": "oklch(35.6% 0.067 34)", "tonalRamp": ["#170603", "#361c16", "#58352d", "#7c5147", "#9f7064", "#be9388", "#dfbbb2", "#ffe7e0"] },
+      "ember": { "role": "error", "displayName": "Ember", "canonical": "oklch(71.7% 0.114 40)", "tonalRamp": ["#1d0200", "#401505", "#652d18", "#8e472d", "#b3654a", "#d08b73", "#efb4a0", "#ffe3d3"] },
+      "ember-text": { "role": "error", "displayName": "Ember Text", "canonical": "oklch(78.6% 0.099 41)", "tonalRamp": ["#1b0300", "#3c1809", "#61301e", "#884b34", "#ac6951", "#ca8e78", "#eab7a4", "#ffe5d6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero h1 only; 14ch cap on mobile; non-breaking spaces bind short Polish words." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2, always followed by the tick-rule and a lead." },
+      "title": { "displayName": "Title", "purpose": "h3s in lists, steps, offers, form heading; phone numbers with tabular numerals." },
+      "body": { "displayName": "Body", "purpose": "Running text in sand, 40-60ch." },
+      "lead": { "displayName": "Lead", "purpose": "Paragraph under section headings and in the hero, 52-58ch." },
+      "label": { "displayName": "Label", "purpose": "Form labels, filter chips, hero features; sentence case, never tracked uppercase." },
+      "caption": { "displayName": "Caption", "purpose": "Placeholder labels, scale end labels, privacy note." }
+    },
+    "shadows": [
+      { "name": "label-lift", "value": "0 2px 8px rgba(0,0,0,0.35)", "purpose": "Cream board label (logo); gallery wood tags use 0 2px 6px." },
+      { "name": "plank-lift", "value": "0 6px 18px rgba(0,0,0,0.45)", "purpose": "Hero rack species planks." },
+      { "name": "plank-selected", "value": "inset 0 0 0 2px #d4a373, 0 8px 20px rgba(0,0,0,0.5)", "purpose": "Active species tab at lg; inset ring alone below lg." },
+      { "name": "focus-ring", "value": "outline: 2px solid #d4a373; outline-offset: 3px; border-radius: 2px", "purpose": "Global :focus-visible." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing in the system." },
+      { "name": "species-wipe", "value": "clip-path inset(0 100% 0 0) -> inset(0 0% 0 0), 0.9s ease-out-expo", "purpose": "Species sampler photo change only." },
+      { "name": "species-text", "value": "opacity 0->1, y 10px->0, 0.35s; exit y -6px", "purpose": "Sampler copy crossfade." },
+      { "name": "reveal", "value": "opacity 0.6->1, y 18px->0, 0.8s, once, viewport margin -10% bottom", "purpose": "Section entrances; content starts visible." },
+      { "name": "hero-rise", "value": "opacity 0.35->1, y 18px->0, 0.9s, staggered 0.05/0.18/0.3/0.42s", "purpose": "Hero copy on load." },
+      { "name": "gallery-settle", "value": "opacity 0.3->1, scale 0.98->1, 0.45s, layout", "purpose": "Gallery tiles on filter change." },
+      { "name": "filter-pill", "value": "shared layoutId, 0.4s ease-out-expo", "purpose": "Brass block sliding between gallery filters." },
+      { "name": "image-hover", "value": "scale 1.04-1.06 over 1.4-1.6s ease-out-expo", "purpose": "Offer and gallery image hover." },
+      { "name": "sheet", "value": "x 100%->0, 0.45s ease-out-expo", "purpose": "Mobile menu sheet." },
+      { "name": "action-bar", "value": "translateY 0 <-> 100%, 500ms ease-out-expo", "purpose": "Mobile bar steps aside while #kontakt is on screen (threshold 0.15)." },
+      { "name": "reduced-motion", "value": "MotionConfig reducedMotion=\"user\"; scroll-behavior auto under prefers-reduced-motion", "purpose": "Honor visitor setting app-wide." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Brass fill for every primary action; hover goes to cream.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Zobacz nasze realizacje <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--color-brass, #d4a373); color: var(--color-espresso, #16110e); padding: 16px 24px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); font-weight: 600; text-decoration: none; border: none; border-radius: 0; transition: background-color 150ms; } .ds-btn-primary svg { transition: transform 150ms; } .ds-btn-primary:hover { background: var(--color-cream, #fbf8f5); } .ds-btn-primary:hover svg { transform: translateX(4px); } .ds-btn-primary:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action; cream hairline that turns brass on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Darmowa wycena</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(251,248,245,0.4); color: var(--color-cream, #fbf8f5); padding: 16px 24px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); font-weight: 600; text-decoration: none; border-radius: 0; background: transparent; transition: color 150ms, border-color 150ms; } .ds-btn-outline:hover { border-color: #d4a373; color: #d4a373; } .ds-btn-outline:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    },
+    {
+      "name": "Quote Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square espresso field with seam border; brass on focus, ember when invalid.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-phone\">Telefon</label><input id=\"ds-phone\" class=\"ds-input\" placeholder=\"600 123 456\"><label class=\"ds-field-label\" for=\"ds-name\" style=\"margin-top:16px\">Imię</label><input id=\"ds-name\" class=\"ds-input\" aria-invalid=\"true\" placeholder=\"np. Anna\"><p class=\"ds-field-error\">Podaj imię.</p></div>",
+      "css": ".ds-field { background: #2a1f18; border: 1px solid #4a392d; padding: 32px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); } .ds-field-label { display: block; margin-bottom: 8px; font-size: 0.875rem; font-weight: 500; color: #fbf8f5; } .ds-input { width: 100%; background: #16110e; border: 1px solid #4a392d; border-radius: 0; padding: 14px 16px; font-size: 1rem; color: #fbf8f5; caret-color: #d4a373; transition: border-color 150ms; } .ds-input::placeholder { color: rgba(168,156,146,0.8); } .ds-input:hover { border-color: #3d2f25; } .ds-input:focus { border-color: #d4a373; outline: none; } .ds-input[aria-invalid=true] { border-color: #e08a6c; } .ds-field-error { margin-top: 8px; font-size: 0.875rem; color: #f0a488; }"
+    },
+    {
+      "name": "Gallery Filter",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Text chips; the selected one sits on a sliding brass block.",
+      "html": "<div class=\"ds-filters\" role=\"group\"><button class=\"ds-chip\" aria-pressed=\"true\">Wszystkie</button><button class=\"ds-chip\" aria-pressed=\"false\">Blaty</button><button class=\"ds-chip\" aria-pressed=\"false\">Stoły</button></div>",
+      "css": ".ds-filters { display: flex; gap: 4px; background: #221813; padding: 8px; } .ds-chip { padding: 12px 16px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); font-size: 0.875rem; font-weight: 500; color: #d6cec7; background: transparent; border: none; border-radius: 0; cursor: pointer; transition: color 150ms, background-color 400ms cubic-bezier(0.16,1,0.3,1); } .ds-chip:hover { color: #fbf8f5; } .ds-chip[aria-pressed=true] { background: #d4a373; color: #16110e; } .ds-chip:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Scrolled header state: espresso scrim, seam rule, sand links, brass quote action.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">BlatyDrewniane.eu</span><nav><a href=\"#\">O nas</a><a href=\"#\">Oferta</a><a href=\"#\">Realizacje</a><a href=\"#\">Proces</a><a href=\"#\">Kontakt</a></nav><a class=\"ds-nav-cta\" href=\"#\">Wycena projektu</a></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 80px; padding: 0 32px; background: rgba(22,17,14,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(74,57,45,0.7); font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); } .ds-nav-logo { background: #fbf8f5; color: #5a2e24; padding: 4px 8px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.35); } .ds-nav nav { display: flex; gap: 32px; } .ds-nav nav a { color: #d6cec7; font-size: 0.95rem; text-decoration: none; transition: color 150ms; } .ds-nav nav a:hover { color: #d4a373; } .ds-nav-cta { background: #d4a373; color: #16110e; padding: 12px 20px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 150ms; } .ds-nav-cta:hover { background: #fbf8f5; } .ds-nav a:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    },
+    {
+      "name": "Species Swatch Tab",
+      "kind": "custom",
+      "refersTo": "species-swatch",
+      "description": "Real sample-board photo cropped by background-size; selected tab gets a brass inset ring. Demo uses a wood-toned gradient where the build uses /images/real/* photos.",
+      "html": "<div class=\"ds-swatches\" role=\"tablist\"><button class=\"ds-swatch\" role=\"tab\" aria-selected=\"true\"><span>Dąb</span></button><button class=\"ds-swatch ds-swatch-b\" role=\"tab\" aria-selected=\"false\"><span>Jesion</span></button></div>",
+      "css": ".ds-swatches { display: flex; flex-direction: column; gap: 8px; width: 260px; background: #16110e; padding: 12px; } .ds-swatch { position: relative; display: flex; align-items: flex-end; height: 56px; border: none; border-radius: 0; padding: 0; overflow: hidden; cursor: pointer; text-align: left; background-image: repeating-linear-gradient(92deg, #c79a66 0 6px, #b88754 6px 9px, #d2a874 9px 17px); background-size: 360%; background-position: 58% 50%; opacity: 0.8; transition: transform 500ms cubic-bezier(0.16,1,0.3,1), box-shadow 500ms cubic-bezier(0.16,1,0.3,1), opacity 150ms; } .ds-swatch-b { background-image: repeating-linear-gradient(91deg, #e2cfae 0 7px, #d4bd96 7px 9px, #ead9bb 9px 18px); } .ds-swatch::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(22,17,14,0.8), rgba(22,17,14,0)); } .ds-swatch span { position: relative; padding: 0 12px 8px; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-weight: 500; color: #fbf8f5; } .ds-swatch:hover { opacity: 1; } .ds-swatch[aria-selected=true] { opacity: 1; transform: translateX(12px); box-shadow: inset 0 0 0 2px #d4a373, 0 8px 20px rgba(0,0,0,0.5); } .ds-swatch:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    },
+    {
+      "name": "Board Label and Placeholder Tag",
+      "kind": "custom",
+      "refersTo": "board-label",
+      "description": "Cream wood tag on a gallery tile, plus the dust 'Poglądowe' placeholder caption flush to the corner and the toning filter on stock photos.",
+      "html": "<figure class=\"ds-tile\"><div class=\"ds-tile-img\"></div><span class=\"ds-placeholder\">Poglądowe</span><figcaption><span class=\"ds-board-label\">Dąb</span><h3>Blat wyspy kuchennej</h3></figcaption></figure>",
+      "css": ".ds-tile { position: relative; width: 320px; height: 240px; margin: 0; overflow: hidden; background: #34271f; } .ds-tile-img { position: absolute; inset: 0; background: linear-gradient(135deg, #6b4a32, #a77b52 60%, #3a2a1f); filter: sepia(0.2) saturate(0.85) brightness(0.82); } .ds-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(22,17,14,0.9), rgba(22,17,14,0.1) 50%, transparent); } .ds-tile figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 20px; } .ds-board-label { display: inline-block; background: #fbf8f5; color: #5a2e24; padding: 2px 8px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); font-size: 0.75rem; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.35); } .ds-tile h3 { margin: 8px 0 0; font-family: var(--font-display, 'Bricolage Grotesque', sans-serif); font-size: 1.25rem; font-weight: 500; line-height: 1.25; color: #fbf8f5; } .ds-placeholder { position: absolute; top: 0; right: 0; z-index: 1; background: rgba(22,17,14,0.8); color: #a89c92; padding: 4px 8px; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); font-size: 0.7rem; }"
+    },
+    {
+      "name": "Mobile Action Bar",
+      "kind": "custom",
+      "refersTo": "mobile-action-bar",
+      "description": "Fixed thumb-reach call/quote bar below 640px; slides away while the contact section is on screen.",
+      "html": "<div class=\"ds-actionbar\"><a class=\"ds-actionbar-call\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>Zadzwoń teraz</a><a class=\"ds-actionbar-quote\" href=\"#\">Wycena projektu</a></div>",
+      "css": ".ds-actionbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 390px; padding: 12px; background: rgba(22,17,14,0.9); backdrop-filter: blur(12px); border-top: 1px solid #4a392d; font-family: var(--font-sans, 'Hanken Grotesk', sans-serif); } .ds-actionbar a { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 0; font-weight: 600; text-decoration: none; } .ds-actionbar-call { border: 1px solid rgba(251,248,245,0.3); color: #fbf8f5; } .ds-actionbar-call:active { background: #34271f; } .ds-actionbar-quote { background: #d4a373; color: #16110e; } .ds-actionbar-quote:active { background: #fbf8f5; } .ds-actionbar a:focus-visible { outline: 2px solid #d4a373; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Workshop Sample Rack",
+    "overview": "The site is a wood sampler, not a brochure. Dark roasted-wood grounds stand in for the dim workshop wall, and the real sample boards from the workshop (dąb, jesion, orzech amerykański, tatajuba, tauari) are the main evidence. They show up as cropped planks in a rack, in a horizontal rail and in a picker. Everything around them is held back: sharp rectangular frames like cut boards, 1px seams instead of cards, and numbers and dimensions treated like a joiner's pencil marks.\n\nDensity is calm and generous. Sections run full width inside a 1440px container, alternating between two near-black browns, so the eye reads one continuous dark surface split by grain, not a stack of boxes. Brass is the only warm accent. It marks every action and active state and almost nothing else. Cream is for headings and for the paper labels that the workshop sticks onto its samples, and the logo sits on one of those labels.\n\nHonesty is part of the look. Stock imagery is allowed only with a visible \"Zdjęcie poglądowe\" (or \"Poglądowe\") tag. In the gallery it is also slightly dimmed and warmed, so it never passes for the workshop's own work.",
+    "keyCharacteristics": [
+      "Espresso-to-walnut dark grounds, cream headings, sand body text, brass only for action.",
+      "Zero corner radius everywhere. Frames are cut boards.",
+      "1px seam lines and seam-filled grid gaps replace cards and boxes.",
+      "Real sample-board photos cropped into swatches carry the species story.",
+      "Cream paper labels (logo, gallery wood tags) as the one \"applied\" object on the surface.",
+      "Motion is restrained and starts from an already visible state. The one signature move is the species clip-path wipe."
+    ],
+    "rules": [
+      { "name": "The Brass Means Act Rule", "body": "Brass appears only on things you can press or on the current state (selected filter, selected species, filled scale segments). Decorative brass is limited to the small hero dash markers and list icons that sit beside actionable or factual rows. Brass is never a background for a section.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "Page sections alternate espresso and umber. Walnut is used only for a contained panel (the form). Board is used only as an image well. No other surface colors.", "section": "colors" },
+      { "name": "The Numbers Are Pencil Marks Rule", "body": "Step numbers, phone numbers and hours are set in the display face (steps in brass, 600 at 1.5rem) or with `tabular-nums`. They work as measurements, not as decorative oversized numerals.", "section": "typography" },
+      { "name": "The Balanced Heading Rule", "body": "h1–h3 use `text-wrap: balance` and paragraphs use `text-wrap: pretty`. Headings never break before a one-letter Polish preposition. Bind it with a non-breaking space.", "section": "typography" },
+      { "name": "The Seam Not Card Rule", "body": "Groups are divided by 1px seam lines, never boxed. Lists use a seam top border plus a seam bottom border on each row (O nas reasons, Kontakt details, mobile menu). Grid groups use a 1px gap over a seam-filled parent, so the seams appear between tiles (Oferta). Timelines use a seam left border on mobile and a seam top border on desktop (Jak pracujemy). The quote form is the only bordered panel, because it is a working surface.", "section": "layout" },
+      { "name": "The Measuring Rule", "body": "The tick-rule (1px seam ticks every 12px, 8px tall, fading out over its last 30%) sits under every section heading. It is the only ornamental line in the system.", "section": "layout" },
+      { "name": "The Objects Only Rule", "body": "Shadows belong to things that could physically be picked up, such as labels and boards. Sections, panels, buttons and inputs cast no shadows.", "section": "elevation" },
+      { "name": "The Already Visible Rule", "body": "Entrances never start from invisible. Section reveals go from opacity 0.6 and 18px down to rest (0.8s, once, triggered 10% before the viewport edge). Hero copy rises from opacity 0.35. Gallery tiles settle from opacity 0.3 at scale 0.98 when filters change. Content must stay readable if JavaScript or motion never runs. The single exception is the desktop hero rack (fading in from 0, 24px to the side), which is decorative because the same species are in the sampler.", "section": "components" },
+      { "name": "The One Signature Move Rule", "body": "The clip-path wipe belongs to the species sampler alone. Elsewhere motion is limited to settling, image hover zoom (1.04–1.06 over 1.4–1.6s), color transitions and sliding sheets and bars.", "section": "components" }
+    ],
+    "dos": [
+      "Do cut every frame square (0px) and divide groups with 1px seam (#4a392d) lines or seam-filled 1px gaps.",
+      "Do keep brass (#d4a373) for actions and current state. On hover, brass fills go to cream.",
+      "Do build species visuals from the real sample-board photos, cropped with `background-size` 320–400% at 58% 50% and a left espresso gradient behind cream names.",
+      "Do put the logo on a cream board label and tag gallery woods with cream labels in label-ink (#5a2e24).",
+      "Do tag every stock image \"Zdjęcie poglądowe\" (or \"Poglądowe\" on gallery tiles) in a dust caption on an espresso scrim, flush to a corner.",
+      "Do start entrances from an already visible state (opacity of at least 0.3) with ease-out-expo, and keep `MotionConfig reducedMotion=\"user\"`.",
+      "Do follow every section h2 with the tick-rule and a sand lead.",
+      "Do bind Polish one-letter prepositions to the next word with a non-breaking space in headings."
+    ],
+    "donts": [
+      "Don't wrap content in rounded or shadowed cards. The form panel is the only bordered container.",
+      "Don't use brass as a section background or as decoration on non-interactive surfaces.",
+      "Don't add shadows to buttons, inputs, sections or panels. Shadows are only for labels and planks.",
+      "Don't substitute flat color chips or generic wood textures for the real sample boards.",
+      "Don't show stock photography without the placeholder label, or present it as a realization.",
+      "Don't reuse the clip-path wipe outside the species sampler, or animate content in from opacity 0.",
+      "Don't set labels in tracked uppercase, and don't add small labels above section headings. The heading, tick-rule and lead sequence is the whole header."
+    ]
+  }
+}
