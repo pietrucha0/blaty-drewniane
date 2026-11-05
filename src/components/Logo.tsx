@@ -12,7 +12,7 @@ export function Logo({ className = "" }: { className?: string }) {
         src={logoImg}
         alt="BlatyDrewniane.eu — naturalnie…"
         priority
-        className="h-8 w-auto sm:h-9"
+        className="h-9 w-auto sm:h-10"
       />
     </span>
   );

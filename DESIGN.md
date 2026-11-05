@@ -148,7 +148,7 @@ A warm, low-chroma brown ladder from near-black to board-brown, with one brass a
 - **Workshop Brass** (#d4a373): primary buttons, the mobile action bar's quote button, the selected gallery filter, the selected species outline, the active segments of the hardness and tone scales, small icons in lists, the brass dash before hero features, underlined text links, `::selection`, caret and focus rings. Hover on brass fills goes to cream, not to a darker brass.
 
 ### Neutral
-- **Espresso** (#16110e): the page ground, `theme-color`, input fill, translucent scrims behind labels and the floating header (45% over the hero, 85% once scrolled), and the dark end of every image gradient.
+- **Espresso** (#16110e): the page ground, `theme-color`, input fill, translucent scrims behind labels and the scrolled header (80–90% opacity), and the dark end of every image gradient.
 - **Umber** (#221813): the alternate section ground (Oferta, Realizacje, Kontakt) and the mobile menu sheet. Sections alternate espresso / umber.
 - **Walnut** (#2a1f18): the raised panel for the quote form and its success state.
 - **Board** (#34271f): the empty well behind images (species panel, gallery tiles) before the photo loads.
@@ -247,7 +247,7 @@ None in the card sense. Offers are tiles separated by seams (see Layout). The fo
 - **Fallback / error:** a 1px brass-at-40% bordered notice expands in height ("Nie udało się wysłać formularza z tej strony…") with a prefilled mailto link "wyślij ją e-mailem" and the phone number (`role="alert"`).
 
 ### Navigation
-- **Header:** a floating bar, not a full-width strip. It is inset 12px from the screen edges on mobile and 24px from 640px, sits 12px from the top (16px from 640px), and is capped at 1180px wide, centred. It is 56px tall (64px from 640px), with 0px corners and a 1px border. Over the hero it is espresso at 45% with `backdrop-blur-md` and a cream border at 10%. Past 24px of scroll it turns espresso at 85% with a seam border and a soft drop shadow (`0 10px 30px -12px`). The logo label sits on the left. Desktop links are 0.95rem sand with 44px tap height and turn brass on hover. The phone number and a 44px primary "Wycena projektu" sit on the right.
+- **Header:** fixed and full width, 64px tall (80px from 640px). Its content is inset from the screen edges by 20px on mobile, 40px from 640px and 56px from 1024px. It is transparent over the hero. Past 24px of scroll it turns espresso at 80% with `backdrop-blur-md` and a seam bottom border at 70%. Desktop links are 0.95rem sand and turn brass on hover. The phone number and a primary "Wycena projektu" sit on the right.
 - **Mobile menu:** a 44px hamburger opens a right-side umber sheet (min(88vw, 380px), seam left border) that slides in over 0.45s over a blurred espresso scrim. Links are 1.5rem display type in seam-ruled rows, with trailing arrows in seam color. Outline and primary actions sit at the foot, padded for the safe area. Escape closes it.
 
 ### Board Label (signature)

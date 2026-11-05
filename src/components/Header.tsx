@@ -26,21 +26,20 @@ export function Header() {
 
   return (
     <>
-      {/* Floating bar: inset from the edges and capped in width, like a board laid over the page */}
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-[max(0.75rem,env(safe-area-inset-left))] pt-3 sm:px-6 sm:pt-4">
-        <div
-          className={`pointer-events-auto mx-auto flex h-14 max-w-[1180px] items-center justify-between gap-6 border pl-2 pr-1.5 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-500 sm:h-16 sm:pl-2.5 sm:pr-2 ${
-            scrolled
-              ? "border-seam bg-espresso/85 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)]"
-              : "border-cream/10 bg-espresso/45"
-          }`}
-        >
+      <header
+        className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
+          scrolled
+            ? "border-b border-seam/70 bg-espresso/80 backdrop-blur-md"
+            : "border-b border-transparent bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-[max(1.25rem,env(safe-area-inset-left))] sm:h-20 sm:px-[max(2.5rem,env(safe-area-inset-left))] lg:px-14">
           <a href="#top" aria-label="BlatyDrewniane.eu — strona główna" className="shrink-0">
             <Logo />
           </a>
 
           <nav aria-label="Główna nawigacja" className="hidden lg:block">
-            <ul className="flex items-center gap-7">
+            <ul className="flex items-center gap-8">
               {nav.map((item) => (
                 <li key={item.href}>
                   <a
@@ -57,14 +56,14 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={company.phones[0].href}
-              className="hidden min-h-11 items-center gap-2 px-3 text-sm tabular-nums text-cream transition-colors hover:text-brass md:inline-flex"
+              className="hidden min-h-11 items-center gap-2 px-3 text-sm text-cream transition-colors hover:text-brass md:inline-flex"
             >
               <Phone className="size-4" aria-hidden />
               {company.phones[0].display}
             </a>
             <a
               href="#kontakt"
-              className="hidden h-11 items-center bg-brass px-5 text-sm font-semibold text-espresso transition-colors hover:bg-cream sm:inline-flex"
+              className="hidden bg-brass px-5 py-3 text-sm font-semibold text-espresso transition-colors hover:bg-cream sm:inline-flex"
             >
               Wycena projektu
             </a>

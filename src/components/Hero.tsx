@@ -29,7 +29,7 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[70%_72%] lg:object-[80%_55%]"
         />
-        <span className="absolute right-0 top-[5.25rem] bg-espresso/80 px-2 py-1 text-[0.7rem] text-dust sm:top-24 lg:bottom-0 lg:top-auto">
+        <span className="absolute right-0 top-16 bg-espresso/80 px-2 py-1 text-[0.7rem] text-dust sm:top-20 lg:bottom-0 lg:top-auto">
           Zdjęcie poglądowe
         </span>
       </div>
