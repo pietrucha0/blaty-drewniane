@@ -5,13 +5,13 @@ import { Reveal, SectionHeading } from "./Reveal";
 export function Offer() {
   const [lead, ...rest] = offers;
   return (
-    <section id="oferta" aria-labelledby="oferta-title" className="bg-umber py-24 sm:py-32">
+    <section id="oferta" aria-labelledby="oferta-title" className="bg-umber py-16 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <Reveal>
           <SectionHeading
             id="oferta-title"
             title="Nasza oferta"
-            lead="Zaczynaliśmy od blatów i to wciąż nasza specjalność. Z tego samego drewna robimy też stoły, konsole, regały i całe zabudowy."
+            lead="Blaty to nasza specjalność. Z tego samego drewna robimy też meble."
           />
         </Reveal>
 
@@ -22,6 +22,7 @@ export function Offer() {
               <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:flex-1">
                 <Image
                   src={lead.image}
+                  placeholder="blur"
                   alt={lead.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
@@ -45,6 +46,7 @@ export function Offer() {
                 <div className="relative aspect-[4/3] overflow-hidden sm:aspect-auto sm:min-h-56">
                   <Image
                     src={o.image}
+                    placeholder="blur"
                     alt={o.imageAlt}
                     fill
                     sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 100vw"
@@ -68,7 +70,7 @@ export function Offer() {
 
 function Tags({ items }: { items: string[] }) {
   return (
-    <ul className="mt-5 flex flex-wrap gap-2">
+    <ul className="mt-5 hidden flex-wrap gap-2 sm:flex">
       {items.map((t) => (
         <li key={t} className="border border-brass/35 px-2.5 py-1 text-sm text-brass">
           {t}

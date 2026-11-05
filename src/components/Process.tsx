@@ -3,13 +3,13 @@ import { Reveal, SectionHeading } from "./Reveal";
 
 export function Process() {
   return (
-    <section id="proces" aria-labelledby="proces-title" className="bg-espresso py-24 sm:py-32">
+    <section id="proces" aria-labelledby="proces-title" className="bg-espresso py-16 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <Reveal>
           <SectionHeading
             id="proces-title"
             title="Jak pracujemy"
-            lead="Cztery kroki od pierwszej rozmowy do gotowego blatu. Przed rozpoczęciem produkcji znasz gatunek, wykończenie i cenę."
+            lead="Cztery kroki od rozmowy do gotowego blatu."
           />
         </Reveal>
 

@@ -11,14 +11,14 @@ export function Gallery() {
   const visible = projects.filter((p) => filter === "all" || p.category === filter);
 
   return (
-    <section id="realizacje" aria-labelledby="realizacje-title" className="bg-umber py-24 sm:py-32">
+    <section id="realizacje" aria-labelledby="realizacje-title" className="bg-umber py-16 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <div className="flex min-w-0 flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
             <SectionHeading
               id="realizacje-title"
               title="Wybrane realizacje"
-              lead="Blaty, stoły i meble, które wyszły z warsztatu. Część zdjęć to jeszcze zdjęcia poglądowe — sukcesywnie zastępujemy je fotografiami naszych prac."
+              lead="Blaty, stoły i meble z naszego warsztatu."
             />
           </Reveal>
 
@@ -69,6 +69,7 @@ export function Gallery() {
               >
                 <Image
                   src={p.image}
+                  placeholder="blur"
                   alt={p.alt}
                   fill
                   sizes="(min-width: 1024px) 33vw, 50vw"

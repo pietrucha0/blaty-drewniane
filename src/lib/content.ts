@@ -1,3 +1,21 @@
+import type { StaticImageData } from "next/image";
+import dabImg from "../../public/images/real/dab.webp";
+import jesionImg from "../../public/images/real/jesion.webp";
+import konsolaJesionImg from "../../public/images/real/konsola-jesion.webp";
+import orzechImg from "../../public/images/real/orzech.webp";
+import tatajubaImg from "../../public/images/real/tatajuba.webp";
+import tauariImg from "../../public/images/real/tauari.webp";
+import blatKuchniaImg from "../../public/images/stock/blat-kuchnia.webp";
+import blatWyspaJasnyImg from "../../public/images/stock/blat-wyspa-jasny.webp";
+import komodaImg from "../../public/images/stock/komoda.webp";
+import lazienkaImg from "../../public/images/stock/lazienka.webp";
+import regalImg from "../../public/images/stock/regal.webp";
+import stolDetalImg from "../../public/images/stock/stol-detal.webp";
+import stolJadalniaImg from "../../public/images/stock/stol-jadalnia.webp";
+import stolLiveEdgeImg from "../../public/images/stock/stol-live-edge.webp";
+import stolOrzechImg from "../../public/images/stock/stol-orzech.webp";
+import wyspaImg from "../../public/images/stock/wyspa.webp";
+
 // Single source of truth for site copy and data.
 // Fields marked TODO are placeholders the owner must confirm or replace.
 
@@ -38,7 +56,7 @@ export type Species = {
   id: string;
   name: string;
   origin: string;
-  image: string;
+  image: StaticImageData;
   character: string;
   use: string;
   hardness: number; // 1–5, relative, for the sampler scale
@@ -51,9 +69,9 @@ export const species: Species[] = [
     id: "dab",
     name: "Dąb",
     origin: "Drewno krajowe",
-    image: "/images/real/dab.webp",
+    image: dabImg,
     character:
-      "Twardy, ciężki i odporny na ścieranie. Wyraźny, spokojny rysunek słojów, który z czasem lekko ciemnieje.",
+      "Twardy, ciężki i odporny na ścieranie.",
     use: "Blaty kuchenne, stoły, schody, fronty meblowe.",
     hardness: 4,
     tone: 2,
@@ -62,9 +80,9 @@ export const species: Species[] = [
     id: "jesion",
     name: "Jesion",
     origin: "Drewno krajowe",
-    image: "/images/real/jesion.webp",
+    image: jesionImg,
     character:
-      "Twardy i elastyczny, jasny, z wyrazistym słojem. Dobrze przyjmuje olej i bejcę.",
+      "Twardy i elastyczny, jasny, z wyrazistym słojem.",
     use: "Blaty, konsole, stoły, regały.",
     hardness: 4,
     tone: 1,
@@ -73,9 +91,9 @@ export const species: Species[] = [
     id: "orzech",
     name: "Orzech amerykański",
     origin: "Ameryka Północna",
-    image: "/images/real/orzech.webp",
+    image: orzechImg,
     character:
-      "Ciepła, czekoladowa twardziel i szlachetny, gęsty rysunek. Łatwy w obróbce, ceniony w meblarstwie.",
+      "Ciepła, czekoladowa twardziel i szlachetny, gęsty rysunek.",
     use: "Stoły, blaty wysp, meble do salonu.",
     hardness: 3,
     tone: 5,
@@ -84,9 +102,9 @@ export const species: Species[] = [
     id: "tatajuba",
     name: "Tatajuba",
     origin: "Drewno egzotyczne, Ameryka Południowa",
-    image: "/images/real/tatajuba.webp",
+    image: tatajubaImg,
     character:
-      "Złocisto-brązowe drewno, które pod wpływem światła ciemnieje do głębokiego miodowego odcienia. Stabilne i trwałe.",
+      "Złocisto-brązowe drewno, które pod wpływem światła ciemnieje do głębokiego miodowego odcienia.",
     use: "Blaty kuchenne i łazienkowe, parapety.",
     hardness: 4,
     tone: 3,
@@ -95,9 +113,9 @@ export const species: Species[] = [
     id: "tauari",
     name: "Tauari",
     origin: "Drewno egzotyczne, Ameryka Południowa",
-    image: "/images/real/tauari.webp",
+    image: tauariImg,
     character:
-      "Jasne, kremowo-beżowe drewno o drobnym, równym usłojeniu. Spokojne i stabilne wymiarowo.",
+      "Jasne, kremowo-beżowe drewno o drobnym, równym usłojeniu.",
     use: "Blaty, parapety, elementy wnętrz.",
     hardness: 3,
     tone: 1,
@@ -110,7 +128,7 @@ export type Offer = {
   title: string;
   lead: string;
   items: string[];
-  image: string;
+  image: StaticImageData;
   imageAlt: string;
   placeholder: boolean;
 };
@@ -118,33 +136,33 @@ export type Offer = {
 export const offers: Offer[] = [
   {
     title: "Blaty z litego drewna",
-    lead: "Kuchenne, łazienkowe i barowe. Docięte do Twojej zabudowy, z wycięciami pod zlew i płytę.",
+    lead: "Kuchenne, łazienkowe i barowe, docięte do Twojej zabudowy.",
     items: ["Olejowosk lub lakier", "Wyspy i blaty narożne", "Dowolna grubość i kształt"],
-    image: "/images/stock/blat-kuchnia.webp",
+    image: blatKuchniaImg,
     imageAlt: "Długi drewniany blat kuchenny w jasnej kuchni",
     placeholder: true,
   },
   {
     title: "Stoły jadalniane i kawowe",
-    lead: "Monolity z jednej deski, live-edge z naturalną krawędzią i nowoczesne, proste formy.",
+    lead: "Monolity, live-edge i proste, nowoczesne formy.",
     items: ["Blaty z naturalną krawędzią", "Nogi drewniane lub stalowe", "Wymiar pod pomieszczenie"],
-    image: "/images/stock/stol-orzech.webp",
+    image: stolOrzechImg,
     imageAlt: "Ciemny stół z orzecha w ciepłym świetle",
     placeholder: true,
   },
   {
     title: "Meble i zabudowy na zamówienie",
-    lead: "Regały, szafki RTV, konsole, wyspy kuchenne i zabudowy wnęk. Projektujemy pod konkretne miejsce.",
+    lead: "Regały, szafki RTV, konsole, wyspy i zabudowy wnęk.",
     items: ["Konsole i regały", "Szafki RTV i komody", "Zabudowy wnęk"],
-    image: "/images/stock/regal.webp",
+    image: regalImg,
     imageAlt: "Regał z ciemnego drewna",
     placeholder: true,
   },
   {
     title: "Drewno egzotyczne",
-    lead: "Poza dębem, jesionem i orzechem pracujemy z gatunkami egzotycznymi o wyjątkowej trwałości.",
+    lead: "Tatajuba, tauari, iroko i merbau.",
     items: ["Tatajuba, tauari", "Iroko, merbau", "Do kuchni i łazienki"],
-    image: "/images/real/tatajuba.webp",
+    image: tatajubaImg,
     imageAlt: "Próbka drewna tatajuba na granitowych kamieniach",
     placeholder: false,
   },
@@ -156,7 +174,7 @@ export type Project = {
   title: string;
   category: GalleryCategory;
   wood: string;
-  image: string;
+  image: StaticImageData;
   alt: string;
   placeholder: boolean;
   tall?: boolean;
@@ -175,7 +193,7 @@ export const projects: Project[] = [
     title: "Konsola z jesionu na stalowej ramie",
     category: "inne",
     wood: "Jesion",
-    image: "/images/real/konsola-jesion.webp",
+    image: konsolaJesionImg,
     alt: "Wąska konsola z jesionowym blatem i półką na czarnej stalowej ramie",
     placeholder: false,
   },
@@ -183,7 +201,7 @@ export const projects: Project[] = [
     title: "Blat wyspy kuchennej",
     category: "blaty",
     wood: "Dąb rustykalny",
-    image: "/images/stock/blat-wyspa-jasny.webp",
+    image: blatWyspaJasnyImg,
     alt: "Kuchnia z drewnianą wyspą i zabudową",
     placeholder: true,
   },
@@ -191,7 +209,7 @@ export const projects: Project[] = [
     title: "Stół live-edge do jadalni",
     category: "stoly",
     wood: "Dąb",
-    image: "/images/stock/stol-live-edge.webp",
+    image: stolLiveEdgeImg,
     alt: "Masywny stół z naturalną krawędzią widziany z góry",
     placeholder: true,
     tall: true,
@@ -200,7 +218,7 @@ export const projects: Project[] = [
     title: "Blaty łazienkowe pod umywalki",
     category: "blaty",
     wood: "Dąb olejowany",
-    image: "/images/stock/lazienka.webp",
+    image: lazienkaImg,
     alt: "Łazienka z drewnianą szafką i blatem pod umywalkę",
     placeholder: true,
   },
@@ -208,7 +226,7 @@ export const projects: Project[] = [
     title: "Stół jadalniany",
     category: "stoly",
     wood: "Orzech europejski",
-    image: "/images/stock/stol-jadalnia.webp",
+    image: stolJadalniaImg,
     alt: "Drewniany stół jadalniany z krzesłami",
     placeholder: true,
   },
@@ -216,7 +234,7 @@ export const projects: Project[] = [
     title: "Wyspa z ciemnego drewna",
     category: "blaty",
     wood: "Orzech amerykański",
-    image: "/images/stock/wyspa.webp",
+    image: wyspaImg,
     alt: "Otwarta kuchnia z wyspą z ciemnego drewna",
     placeholder: true,
   },
@@ -224,7 +242,7 @@ export const projects: Project[] = [
     title: "Komoda z frezowanymi frontami",
     category: "inne",
     wood: "Dąb naturalny",
-    image: "/images/stock/komoda.webp",
+    image: komodaImg,
     alt: "Niska komoda z drewna z dekoracjami",
     placeholder: true,
   },
@@ -232,7 +250,7 @@ export const projects: Project[] = [
     title: "Stół na skośnych nogach",
     category: "stoly",
     wood: "Orzech",
-    image: "/images/stock/stol-detal.webp",
+    image: stolDetalImg,
     alt: "Ciemny drewniany stół w pustym, jasnym wnętrzu",
     placeholder: true,
   },
@@ -241,22 +259,22 @@ export const projects: Project[] = [
 export const reasons = [
   {
     title: "Lite drewno, nie okleina na płycie",
-    body: "Blat jest z pełnego drewna jednego gatunku. Można go szlifować i odnawiać przez lata, bo pod powierzchnią jest wciąż to samo drewno.",
+    body: "Pełne drewno, które można szlifować i odnawiać latami.",
     icon: "trees",
   },
   {
     title: "Kształt i wymiar pod projekt",
-    body: "Wyspy, narożniki, wnęki, wycięcia pod zlew i płytę. Pracujemy na Twoich wymiarach albo na rysunku od architekta.",
+    body: "Wyspy, narożniki, wnęki i wycięcia pod zlew.",
     icon: "ruler",
   },
   {
     title: "Zabezpieczenie przed wilgocią",
-    body: "Olejowosk albo lakier, dobrany do miejsca. Inaczej wykańczamy blat przy zlewie, inaczej stół w salonie.",
+    body: "Olejowosk albo lakier, dobrany do miejsca.",
     icon: "droplets",
   },
   {
     title: "Rozmowa bezpośrednio z rzemieślnikiem",
-    body: "Dzwonisz do osoby, która dobiera deski i prowadzi obróbkę. Bez pośredników i bez infolinii.",
+    body: "Rozmawiasz z osobą, która robi Twój mebel.",
     icon: "handshake",
   },
 ] as const;
@@ -264,19 +282,19 @@ export const reasons = [
 export const steps = [
   {
     title: "Konsultacja i wymiary",
-    body: "Opowiedz, co ma powstać. Wystarczy szkic z wymiarami, zdjęcie miejsca albo projekt od architekta.",
+    body: "Wystarczy szkic z wymiarami albo zdjęcie miejsca.",
   },
   {
     title: "Dobór drewna i wykończenia",
-    body: "Wybieramy gatunek, grubość, krawędź i sposób zabezpieczenia. Dostajesz wycenę przed rozpoczęciem pracy.",
+    body: "Gatunek, grubość i wykończenie. Wycena przed startem.",
   },
   {
     title: "Ręczna produkcja",
-    body: "Selekcja desek, obróbka, szlifowanie i olejowanie. Każdy egzemplarz przechodzi przez ręce stolarza.",
+    body: "Selekcja desek, obróbka i olejowanie.",
   },
   {
     title: "Odbiór lub transport",
-    body: "Gotowy blat lub mebel odbierasz osobiście albo ustalamy z Tobą transport.",
+    body: "Odbierasz sam albo ustalamy transport.",
   },
 ];
 

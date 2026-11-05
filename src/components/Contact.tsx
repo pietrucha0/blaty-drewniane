@@ -5,14 +5,14 @@ import { Reveal, SectionHeading } from "./Reveal";
 
 export function Contact() {
   return (
-    <section id="kontakt" aria-labelledby="kontakt-title" className="bg-umber py-24 sm:py-32">
+    <section id="kontakt" aria-labelledby="kontakt-title" className="bg-umber py-16 sm:py-32">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-4 sm:px-8 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <Reveal>
             <SectionHeading
               id="kontakt-title"
               title="Skontaktuj się z nami"
-              lead="Zadzwoń albo opisz projekt w formularzu. Wystarczą przybliżone wymiary i gatunek, który Ci się podoba — resztę ustalimy w rozmowie."
+              lead="Zadzwoń albo opisz projekt. Wystarczą przybliżone wymiary."
             />
           </Reveal>
 

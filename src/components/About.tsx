@@ -1,18 +1,20 @@
 import Image from "next/image";
 import { Droplets, Handshake, Ruler, Trees } from "lucide-react";
 import { reasons } from "@/lib/content";
+import workshopImg from "../../public/images/stock/warsztat-olowek.webp";
 import { Reveal, SectionHeading } from "./Reveal";
 
 const icons = { trees: Trees, ruler: Ruler, droplets: Droplets, handshake: Handshake };
 
 export function About() {
   return (
-    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-espresso py-24 sm:py-32">
+    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-espresso py-16 sm:py-32">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-4 sm:px-8 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-5">
           <figure className="relative aspect-[4/5] overflow-hidden lg:sticky lg:top-28">
             <Image
-              src="/images/stock/warsztat-olowek.webp"
+              src={workshopImg}
+              placeholder="blur"
               alt="Stolarz zaznacza ołówkiem linię cięcia na desce"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -29,7 +31,7 @@ export function About() {
             <SectionHeading
               id="o-nas-title"
               title="Dlaczego my?"
-              lead="Jesteśmy małym warsztatem, w którym drewno wybiera się deska po desce. Nie mamy katalogu gotowych wymiarów: każdy blat i każdy mebel powstaje pod konkretne wnętrze, z jednego gatunku i z myślą o latach codziennego używania."
+              lead="Mały warsztat, drewno wybierane deska po desce. Każdy blat i mebel robimy pod konkretne wnętrze."
             />
           </Reveal>
 

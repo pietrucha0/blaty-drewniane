@@ -46,7 +46,7 @@ export function SectionHeading({
         {title}
       </h2>
       <div aria-hidden className="tick-rule mt-5 w-40" />
-      {lead && <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-sand">{lead}</p>}
+      {lead && <p className="mt-4 max-w-[58ch] leading-relaxed text-sand sm:mt-5 sm:text-lg">{lead}</p>}
     </div>
   );
 }

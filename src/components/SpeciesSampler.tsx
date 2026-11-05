@@ -43,13 +43,13 @@ export function SpeciesSampler() {
   }, []);
 
   return (
-    <section id="gatunki" aria-labelledby="gatunki-title" className="bg-espresso py-24 sm:py-32">
+    <section id="gatunki" aria-labelledby="gatunki-title" className="bg-espresso py-16 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <Reveal>
           <SectionHeading
             id="gatunki-title"
             title="Wybierz gatunek drewna"
-            lead="To prawdziwe próbki z naszego warsztatu. Każdy gatunek ma inny kolor, twardość i rysunek słojów. Dotknij próbki, żeby zobaczyć, czym się różnią."
+            lead="Prawdziwe próbki z warsztatu. Wybierz gatunek, żeby porównać."
           />
         </Reveal>
 
@@ -104,6 +104,7 @@ export function SpeciesSampler() {
                 >
                   <Image
                     src={active.image}
+                    placeholder="blur"
                     alt={`Próbka drewna: ${active.name}`}
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
@@ -130,7 +131,7 @@ export function SpeciesSampler() {
                   <dl className="mt-8 space-y-6">
                     <Scale label="Twardość" value={active.hardness} low="miękkie" high="bardzo twarde" />
                     <Scale label="Odcień" value={active.tone} low="jasny" high="ciemny" />
-                    <div>
+                    <div className="hidden sm:block">
                       <dt className="text-sm text-dust">Najczęściej na</dt>
                       <dd className="mt-1 text-cream">{active.use}</dd>
                     </div>

@@ -31,7 +31,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1440px] gap-12 px-4 sm:px-8 md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Logo />
-          <p className="mt-5 max-w-[36ch] leading-relaxed text-sand">
+          <p className="mt-5 hidden max-w-[36ch] leading-relaxed text-sand sm:block">
             Blaty i meble z litego drewna na wymiar. Dąb, jesion, orzech i gatunki egzotyczne.
           </p>
         </div>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { species } from "@/lib/content";
+import heroImg from "../../public/images/stock/hero-krawedz.webp";
 import { selectSpecies, swatchStyle } from "./Swatch";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -20,7 +21,8 @@ export function Hero() {
       {/* Mobile: the solid edge owns the top of the screen; desktop: full-bleed behind the copy */}
       <div className="absolute inset-x-0 top-0 -z-20 h-[34svh] lg:inset-0 lg:h-auto">
         <Image
-          src="/images/stock/hero-krawedz.webp"
+          src={heroImg}
+          placeholder="blur"
           alt="Gruba krawędź blatu z litego drewna w ciepłym, bocznym świetle"
           fill
           priority
@@ -48,9 +50,7 @@ export function Hero() {
             {...rise(0.18)}
             className="mt-4 max-w-[52ch] text-[1.05rem] [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:max-w-[72ch] [@media(max-height:500px)]:text-base leading-relaxed text-sand sm:text-lg"
           >
-            Robimy na wymiar blaty kuchenne i łazienkowe oraz meble: stoły, konsole, regały
-            i zabudowy. Każdy egzemplarz z jednego gatunku drewna, obrabiany ręcznie
-            w naszym warsztacie.
+            Blaty, stoły i meble na wymiar. Z litego drewna, obrabiane ręcznie w naszym warsztacie.
           </motion.p>
 
           <motion.div {...rise(0.3)} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row [@media(max-height:500px)]:mt-4">
@@ -63,7 +63,7 @@ export function Hero() {
             </a>
             <a
               href="#kontakt"
-              className="inline-flex items-center justify-center border border-cream/40 px-6 py-3.5 font-semibold sm:py-4 text-cream transition-colors hover:border-brass hover:text-brass"
+              className="hidden items-center justify-center border border-cream/40 sm:inline-flex px-6 py-3.5 font-semibold sm:py-4 text-cream transition-colors hover:border-brass hover:text-brass"
             >
               Darmowa wycena
             </a>
