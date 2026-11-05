@@ -14,7 +14,7 @@ export function Process() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <ol className="relative mt-16 grid gap-0 lg:grid-cols-4 lg:gap-8">
+          <ol className="relative mt-16 grid gap-0 pl-5 lg:grid-cols-4 lg:gap-8 lg:pl-0">
             {steps.map((s, i) => (
               <li
                 key={s.title}

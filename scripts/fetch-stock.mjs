@@ -1,7 +1,7 @@
 // Downloads Unsplash placeholder photos (free license) and records provenance in EXIF.
 import sharp from "sharp";
 const list = {
-  "hero-krawedz": "1782914701565-ab51d55e1479",
+  "hero-krawedz": "1782914701565-ab51d55e1479", // fetched at w=2600 for wide screens
   "blat-kuchnia": "1786462543690-71b19c0d5321",
   "stol-orzech": "1576249720336-35b043fce96d",
   "regal": "1580628881159-4eae247a6bf5",

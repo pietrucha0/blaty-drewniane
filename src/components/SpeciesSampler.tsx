@@ -137,9 +137,9 @@ export function SpeciesSampler() {
                   </dl>
                   <a
                     href="#kontakt"
-                    className="mt-8 inline-flex border-b border-brass pb-1 font-semibold text-brass transition-colors hover:border-cream hover:text-cream"
+                    className="group mt-6 inline-flex min-h-11 items-center font-semibold text-brass transition-colors hover:text-cream"
                   >
-                    Zapytaj o ten gatunek
+                    <span className="border-b border-brass pb-1 transition-colors group-hover:border-cream">Zapytaj o ten gatunek</span>
                   </a>
                 </motion.div>
               </AnimatePresence>

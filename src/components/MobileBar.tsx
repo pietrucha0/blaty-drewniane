@@ -18,7 +18,7 @@ export function MobileBar() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-seam bg-espresso/90 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md transition-transform duration-500 ease-out-expo sm:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-30 border-t border-seam bg-espresso/90 px-[max(0.75rem,env(safe-area-inset-left))] pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md transition-transform duration-500 ease-out-expo sm:hidden ${
         hidden ? "translate-y-full" : "translate-y-0"
       }`}
     >

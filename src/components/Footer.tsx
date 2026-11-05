@@ -38,10 +38,10 @@ export function Footer() {
 
         <nav aria-label="Stopka" className="lg:col-span-2 lg:col-start-6">
           <h2 className="font-display text-sm font-medium text-dust">Strona</h2>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-2">
             {nav.map((n) => (
               <li key={n.href}>
-                <a href={n.href} className="text-sand transition-colors hover:text-brass">
+                <a href={n.href} className="inline-flex min-h-11 items-center text-sand transition-colors hover:text-brass">
                   {n.label}
                 </a>
               </li>

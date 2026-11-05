@@ -36,24 +36,24 @@ export function Hero() {
         className="absolute inset-x-0 top-0 -z-10 h-[34svh] bg-[linear-gradient(180deg,rgba(22,17,14,0.6)_0%,rgba(22,17,14,0)_22%,rgba(22,17,14,0)_55%,#16110e_100%)] lg:inset-0 lg:h-auto lg:bg-[linear-gradient(90deg,#16110e_0%,rgba(22,17,14,0.92)_38%,rgba(22,17,14,0.25)_72%,rgba(22,17,14,0.55)_100%)]"
       />
 
-      <div className="mx-auto grid w-full max-w-[1440px] flex-1 grid-cols-[minmax(0,1fr)] content-end gap-6 px-4 pb-6 pt-[27svh] sm:px-8 lg:grid-cols-12 lg:content-center lg:items-center lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid w-full max-w-[1440px] flex-1 grid-cols-[minmax(0,1fr)] content-end gap-6 px-4 pb-6 pt-[27svh] [@media(max-height:500px)]:pt-20 sm:px-8 lg:grid-cols-12 lg:content-center lg:items-center lg:pb-20 lg:pt-32">
         <div className="lg:col-span-7">
           <motion.h1
             {...rise(0.05)}
-            className="max-w-[14ch] font-display lg:max-w-none lg:[text-wrap:wrap] text-[clamp(2.4rem,9vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-cream"
+            className="max-w-[14ch] font-display lg:max-w-none lg:[text-wrap:wrap] text-[clamp(2.25rem,min(9vw,12svh),5.75rem)] lg:text-[clamp(3.5rem,min(6.4vw,11svh),5.75rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-cream"
           >
             Meble z{"\u00a0"}litego drewna, które zostają na{"\u00a0"}pokolenia
           </motion.h1>
           <motion.p
             {...rise(0.18)}
-            className="mt-4 max-w-[52ch] text-[1.05rem] leading-relaxed text-sand sm:text-lg"
+            className="mt-4 max-w-[52ch] text-[1.05rem] [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:max-w-[72ch] [@media(max-height:500px)]:text-base leading-relaxed text-sand sm:text-lg"
           >
             Robimy na wymiar blaty kuchenne i łazienkowe oraz meble: stoły, konsole, regały
             i zabudowy. Każdy egzemplarz z jednego gatunku drewna, obrabiany ręcznie
             w naszym warsztacie.
           </motion.p>
 
-          <motion.div {...rise(0.3)} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+          <motion.div {...rise(0.3)} className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row [@media(max-height:500px)]:mt-4">
             <a
               href="#realizacje"
               className="group inline-flex items-center justify-center gap-2 bg-brass px-6 py-3.5 font-semibold text-espresso transition-colors hover:bg-cream sm:py-4"

@@ -28,19 +28,14 @@ export function Contact() {
                   </a>
                 </li>
               ))}
-              <li className="border-b border-seam">
-                {company.whatsapp ? (
+              {company.whatsapp && (
+                <li className="border-b border-seam">
                   <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 py-5">
                     <MessageCircle className="size-5 text-brass" strokeWidth={1.5} aria-hidden />
                     <span className="text-cream transition-colors group-hover:text-brass">Napisz na WhatsApp</span>
                   </a>
-                ) : (
-                  <span className="flex items-center gap-4 py-5 text-dust">
-                    <MessageCircle className="size-5" strokeWidth={1.5} aria-hidden />
-                    WhatsApp — wkrótce
-                  </span>
-                )}
-              </li>
+                </li>
+              )}
               <li className="border-b border-seam">
                 <a href={`mailto:${company.email}`} className="group flex items-center gap-4 py-5">
                   <Mail className="size-5 text-brass" strokeWidth={1.5} aria-hidden />

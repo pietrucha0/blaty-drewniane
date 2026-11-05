@@ -33,7 +33,7 @@ export function Header() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-4 sm:h-20 sm:px-8">
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-[max(1rem,env(safe-area-inset-left))] sm:h-20 sm:px-[max(2rem,env(safe-area-inset-left))]">
           <a href="#top" aria-label="BlatyDrewniane.eu — strona główna" className="shrink-0">
             <Logo />
           </a>
@@ -44,7 +44,7 @@ export function Header() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-[0.95rem] text-sand transition-colors hover:text-brass"
+                    className="inline-flex min-h-11 items-center text-[0.95rem] text-sand transition-colors hover:text-brass"
                   >
                     {item.label}
                   </a>
@@ -56,7 +56,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={company.phones[0].href}
-              className="hidden items-center gap-2 px-3 py-2 text-sm text-cream transition-colors hover:text-brass md:inline-flex"
+              className="hidden min-h-11 items-center gap-2 px-3 text-sm text-cream transition-colors hover:text-brass md:inline-flex"
             >
               <Phone className="size-4" aria-hidden />
               {company.phones[0].display}
