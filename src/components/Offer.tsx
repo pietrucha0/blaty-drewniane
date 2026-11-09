@@ -15,9 +15,10 @@ export function Offer() {
           />
         </Reveal>
 
+        <Reveal delay={0.05}>
         <div className="rail -mx-4 mt-10 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:mt-14 sm:grid sm:snap-none sm:gap-px sm:overflow-visible sm:bg-seam sm:px-0 sm:pb-0 lg:grid-cols-12">
           {/* Lead offer: countertops, the workshop's specialty */}
-          <Reveal className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-7 lg:row-span-3">
+          <div className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-7 lg:row-span-3">
             <article className="group flex h-full flex-col">
               <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[4/3] lg:aspect-auto lg:flex-1">
                 <Image
@@ -38,10 +39,10 @@ export function Offer() {
                 <Tags items={lead.items} />
               </div>
             </article>
-          </Reveal>
+          </div>
 
           {rest.map((o, i) => (
-            <Reveal key={o.title} delay={i * 0.06} className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-5">
+            <div key={o.title} className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-5">
               <article className="group grid h-full grid-cols-1 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                 <div className="relative aspect-[4/5] overflow-hidden sm:aspect-auto sm:min-h-56">
                   <Image
@@ -60,9 +61,10 @@ export function Offer() {
                   <Tags items={o.items} />
                 </div>
               </article>
-            </Reveal>
+            </div>
           ))}
         </div>
+        </Reveal>
         <p className="mt-6 text-sm text-dust sm:hidden">Przesuń, żeby zobaczyć więcej. Część zdjęć jest poglądowa.</p>
       </div>
     </section>
