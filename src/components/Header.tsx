@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X, ArrowRight } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { company, nav } from "@/lib/content";
 
@@ -84,81 +84,78 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            className="fixed inset-0 z-50 flex flex-col bg-espresso lg:hidden"
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <button
-              type="button"
-              aria-label="Zamknij menu"
-              className="absolute inset-0 bg-espresso/70 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
-            />
-            <motion.div
-              id="mobile-menu"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Menu"
-              className="absolute inset-y-0 right-0 flex w-[min(88vw,380px)] flex-col border-l border-seam bg-umber"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="flex h-16 items-center justify-between px-4">
-                <span className="font-display text-sm text-dust">Menu</span>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Zamknij menu"
-                  className="inline-flex size-11 items-center justify-center text-cream"
-                  autoFocus
-                >
-                  <X className="size-6" aria-hidden />
-                </button>
-              </div>
+            {/* Same row as the header, so the close button sits where the menu button was */}
+            <div className="flex h-16 shrink-0 items-center justify-between px-[max(1.25rem,env(safe-area-inset-left))] sm:h-20 sm:px-10">
+              <a href="#top" onClick={() => setOpen(false)} aria-label="BlatyDrewniane.eu — strona główna">
+                <Logo />
+              </a>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Zamknij menu"
+                className="-mr-2 inline-flex size-11 items-center justify-center text-cream"
+                autoFocus
+              >
+                <X className="size-6" strokeWidth={1.5} aria-hidden />
+              </button>
+            </div>
 
-              <nav aria-label="Nawigacja mobilna" className="flex-1 overflow-y-auto px-4">
-                <ul className="border-t border-seam">
-                  {nav.map((item, i) => (
-                    <motion.li
-                      key={item.href}
-                      className="border-b border-seam"
-                      initial={{ opacity: 0, x: 24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.08 + i * 0.04, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            <nav aria-label="Nawigacja mobilna" className="flex flex-1 flex-col justify-center overflow-y-auto px-[max(1.25rem,env(safe-area-inset-left))] sm:px-10">
+              <ul className="space-y-1">
+                {nav.map((item, i) => (
+                  <motion.li
+                    key={item.href}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <a
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="inline-block py-1.5 font-display text-[clamp(2rem,6.5svh,2.6rem)] font-medium leading-[1.1] tracking-[-0.03em] text-cream transition-colors active:text-brass"
                     >
-                      <a
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="flex items-center justify-between py-5 font-display text-2xl text-cream active:text-brass"
-                      >
-                        {item.label}
-                        <ArrowRight className="size-5 text-seam" aria-hidden />
-                      </a>
-                    </motion.li>
-                  ))}
-                </ul>
-              </nav>
+                      {item.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </nav>
 
-              <div className="space-y-3 border-t border-seam p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-                <a
-                  href={company.phones[0].href}
-                  className="btn btn-outline btn-noarrow flex items-center justify-center py-4"
-                >
-                  <Phone className="size-4" aria-hidden />
-                  Zadzwoń: {company.phones[0].display}
-                </a>
-                <a
-                  href="#kontakt"
-                  onClick={() => setOpen(false)}
-                  className="btn btn-primary flex items-center justify-center py-4 font-semibold"
-                >
-                  Wycena projektu
+            <motion.div
+              className="shrink-0 px-[max(1.25rem,env(safe-area-inset-left))] pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.5 }}
+            >
+              <div aria-hidden className="tick-rule w-40" />
+              <div className="mt-6 flex items-end justify-between gap-4">
+                <div>
+                  <p className="text-sm text-dust">Zadzwoń</p>
+                  <a href={company.phones[0].href} className="mt-1 block font-display text-2xl font-medium tabular-nums text-cream">
+                    {company.phones[0].display}
+                  </a>
+                </div>
+                <a href={`mailto:${company.email}`} className="pb-1 text-sm text-sand underline decoration-seam underline-offset-4">
+                  E-mail
                 </a>
               </div>
+              <a
+                href="#kontakt"
+                onClick={() => setOpen(false)}
+                className="btn btn-primary mt-6 flex h-12 items-center justify-center font-semibold"
+              >
+                Wycena projektu
+              </a>
             </motion.div>
           </motion.div>
         )}

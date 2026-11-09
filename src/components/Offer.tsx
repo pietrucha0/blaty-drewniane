@@ -41,7 +41,7 @@ export function Offer() {
             </article>
           </div>
 
-          {rest.map((o, i) => (
+          {rest.map((o) => (
             <div key={o.title} className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-5">
               <article className="group grid h-full grid-cols-1 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                 <div className="relative aspect-[4/5] overflow-hidden sm:aspect-auto sm:min-h-56">
