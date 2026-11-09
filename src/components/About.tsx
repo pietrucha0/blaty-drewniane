@@ -8,9 +8,9 @@ const icons = { trees: Trees, ruler: Ruler, droplets: Droplets, handshake: Hands
 
 export function About() {
   return (
-    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-espresso py-16 sm:py-32">
+    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-espresso py-24 sm:py-32">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-4 sm:px-8 lg:grid-cols-12 lg:gap-10">
-        <Reveal className="lg:col-span-5">
+        <Reveal className="hidden sm:block lg:col-span-5">
           <figure className="relative aspect-[4/5] overflow-hidden lg:sticky lg:top-28">
             <Image
               src={workshopImg}
@@ -36,18 +36,18 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <ul className="mt-14 border-t border-seam">
+            <ul className="mt-10 border-t border-seam sm:mt-14">
               {reasons.map((r) => {
                 const Icon = icons[r.icon];
                 return (
                   <li
                     key={r.title}
-                    className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-seam py-7 sm:grid-cols-[3rem_1fr]"
+                    className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-seam py-5 sm:grid-cols-[3rem_1fr] sm:py-7"
                   >
-                    <Icon className="mt-1 size-6 text-brass" strokeWidth={1.5} aria-hidden />
+                    <Icon className="mt-0.5 size-6 text-brass sm:mt-1" strokeWidth={1.5} aria-hidden />
                     <div>
                       <h3 className="font-display text-xl font-medium text-cream sm:text-2xl">{r.title}</h3>
-                      <p className="mt-2 max-w-[60ch] leading-relaxed text-sand">{r.body}</p>
+                      <p className="mt-2 hidden max-w-[60ch] leading-relaxed text-sand sm:block">{r.body}</p>
                     </div>
                   </li>
                 );

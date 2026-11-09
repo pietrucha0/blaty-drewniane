@@ -25,7 +25,7 @@ OWN-WORLD: Grunt espresso #16110e→#2a1f18, powierzchnie #34271f/#3d2f25, kraw�
 
 STORY: Odwiedzający widzi drewno, rozumie, że blat i mebel powstają na wymiar z litego drewna, wybiera gatunek, przegląda realizacje i dzwoni albo wysyła wycenę.
 
-FIRST VIEWPORT: Mobile: zdjęcie grubej krawędzi blatu w górnej ~1/3 ekranu (logo i menu na nim), nagłówek dużym krojem zaraz pod nim, opis, dwa przyciski, cechy i pasek próbek gatunków (przewijany poziomo) — wszystko nad stałym dolnym paskiem Zadzwoń / Wycena. (Zmiana po recenzji: nagłówek przesunięty z dolnej połowy, bo pierwszeństwo ma widoczność całej akcji i próbek nad paskiem na 390×844.) Desktop: nagłówek po lewej 7/12, po prawej pionowy stos próbek gatunków jak deski w stojaku.
+FIRST VIEWPORT: Mobile: zdjęcie grubej krawędzi blatu w górnych ~44% ekranu (logo i menu na nim), pod nim nagłówek, jedno zdanie i jeden przycisk „Zobacz nasze realizacje”. Bez cech i paska próbek (od 640px wracają). Dolny pasek Zadzwoń / Wycena pojawia się dopiero po hero, przy przewijaniu w górę. (Zmiana na prośbę użytkownika 2026-11-09: „mało tekstu naraz, elegancko”; na telefonie jeden element na ekran.) Desktop: nagłówek po lewej 7/12, po prawej pionowy stos próbek gatunków jak deski w stojaku.
 
 FORM: Próbnik gatunków jako sygnaturowa interakcja: wybór gatunku podmienia zdjęcie i opis (hero → sekcja „Gatunki drewna”). Ruch: płynne przejście clip-path przy zmianie gatunku; reszta wejść jest powściągliwa. Pozycja 1 z listy (kierunek przypięty briefem użytkownika; przypięcie wygrywa z losowaniem, które przydzieliło pozycję 7). seed:e5c15f6737f7f050
 

@@ -5,7 +5,7 @@ import { Reveal, SectionHeading } from "./Reveal";
 
 export function Contact() {
   return (
-    <section id="kontakt" aria-labelledby="kontakt-title" className="bg-umber py-16 sm:py-32">
+    <section id="kontakt" aria-labelledby="kontakt-title" className="bg-umber py-24 sm:py-32">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-4 sm:px-8 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <Reveal>
@@ -42,13 +42,13 @@ export function Contact() {
                   <span className="break-all text-cream transition-colors group-hover:text-brass">{company.email}</span>
                 </a>
               </li>
-              <li className="flex items-start gap-4 border-b border-seam py-5">
+              <li className="hidden items-start gap-4 border-b border-seam py-5 sm:flex">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
                 <span className="text-sand">
                   {company.address ?? "Warsztat odwiedzisz po wcześniejszym umówieniu — adres podamy telefonicznie."}
                 </span>
               </li>
-              <li className="flex items-start gap-4 py-5">
+              <li className="hidden items-start gap-4 py-5 sm:flex">
                 <Clock className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
                 <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sand">
                   {company.hours.map((h) => (

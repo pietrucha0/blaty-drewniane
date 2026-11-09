@@ -36,7 +36,7 @@ export function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Stopka" className="lg:col-span-2 lg:col-start-6">
+        <nav aria-label="Stopka" className="hidden sm:block lg:col-span-2 lg:col-start-6">
           <h2 className="font-display text-sm font-medium text-dust">Strona</h2>
           <ul className="mt-2">
             {nav.map((n) => (

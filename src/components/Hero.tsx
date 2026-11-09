@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
       {/* Mobile: the solid edge owns the top of the screen; desktop: full-bleed behind the copy */}
-      <div className="absolute inset-x-0 top-0 -z-20 h-[34svh] lg:inset-0 lg:h-auto">
+      <div className="absolute inset-x-0 top-0 -z-20 h-[44svh] sm:h-[34svh] lg:inset-0 lg:h-auto">
         <Image
           src={heroImg}
           placeholder="blur"
@@ -35,10 +35,10 @@ export function Hero() {
       </div>
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-[34svh] bg-[linear-gradient(180deg,rgba(22,17,14,0.6)_0%,rgba(22,17,14,0)_22%,rgba(22,17,14,0)_55%,#16110e_100%)] lg:inset-0 lg:h-auto lg:bg-[linear-gradient(90deg,#16110e_0%,rgba(22,17,14,0.92)_38%,rgba(22,17,14,0.25)_72%,rgba(22,17,14,0.55)_100%)]"
+        className="absolute inset-x-0 top-0 -z-10 h-[44svh] sm:h-[34svh] bg-[linear-gradient(180deg,rgba(22,17,14,0.6)_0%,rgba(22,17,14,0)_22%,rgba(22,17,14,0)_55%,#16110e_100%)] lg:inset-0 lg:h-auto lg:bg-[linear-gradient(90deg,#16110e_0%,rgba(22,17,14,0.92)_38%,rgba(22,17,14,0.25)_72%,rgba(22,17,14,0.55)_100%)]"
       />
 
-      <div className="mx-auto grid w-full max-w-[1440px] flex-1 grid-cols-[minmax(0,1fr)] content-end gap-6 px-4 pb-6 pt-[27svh] [@media(max-height:500px)]:pt-20 sm:px-8 lg:grid-cols-12 lg:content-center lg:items-center lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid w-full max-w-[1440px] flex-1 grid-cols-[minmax(0,1fr)] content-end gap-6 px-4 pb-20 pt-[38svh] sm:pb-6 sm:pt-[27svh] [@media(max-height:500px)]:pt-20 sm:px-8 lg:grid-cols-12 lg:content-center lg:items-center lg:pb-20 lg:pt-32">
         <div className="lg:col-span-7">
           <motion.h1
             {...rise(0.05)}
@@ -70,7 +70,7 @@ export function Hero() {
 
           <motion.ul
             {...rise(0.42)}
-            className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-sand sm:mt-8"
+            className="mt-5 hidden flex-wrap gap-x-6 gap-y-2 text-sm text-sand sm:mt-8 sm:flex"
             aria-label="Najważniejsze cechy"
           >
             {["100% lite drewno", "Polska produkcja", "Meble na wymiar"].map((b) => (
@@ -112,7 +112,7 @@ export function Hero() {
       </div>
 
       {/* Mobile species rail */}
-      <div className="pb-8 sm:pb-10 lg:hidden" aria-label="Gatunki drewna">
+      <div className="hidden pb-10 sm:block lg:hidden" aria-label="Gatunki drewna">
         <ul className="rail flex snap-x gap-2 overflow-x-auto px-4 sm:px-8">
           {species.map((s) => (
             <li key={s.id} className="snap-start">

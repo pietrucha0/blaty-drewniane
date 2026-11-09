@@ -43,7 +43,7 @@ export function SpeciesSampler() {
   }, []);
 
   return (
-    <section id="gatunki" aria-labelledby="gatunki-title" className="bg-espresso py-16 sm:py-32">
+    <section id="gatunki" aria-labelledby="gatunki-title" className="bg-espresso py-24 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <Reveal>
           <SectionHeading
@@ -56,7 +56,7 @@ export function SpeciesSampler() {
         <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Picker */}
           <div className="min-w-0 lg:col-span-3" role="tablist" aria-label="Gatunki drewna" aria-orientation="vertical">
-            <div className="rail -mx-4 flex gap-2 overflow-x-auto px-4 py-1 sm:mx-0 sm:px-0 lg:flex-col lg:overflow-visible lg:py-0">
+            <div className="rail grid grid-cols-5 gap-2 sm:flex sm:overflow-x-auto sm:py-1 lg:flex-col lg:overflow-visible lg:py-0">
               {species.map((s) => {
                 const selected = s.id === activeId;
                 return (
@@ -67,20 +67,20 @@ export function SpeciesSampler() {
                     aria-selected={selected}
                     aria-controls="species-panel"
                     onClick={() => setActiveId(s.id)}
-                    className={`group relative flex h-14 w-36 shrink-0 items-end overflow-hidden text-left transition-[transform,box-shadow] duration-500 ease-out-expo lg:w-full ${
+                    className={`group relative flex h-14 w-full shrink-0 items-end sm:w-36 overflow-hidden text-left transition-[transform,box-shadow] duration-500 ease-out-expo lg:w-full ${
                       selected
                         ? "shadow-[inset_0_0_0_2px_var(--color-brass)] lg:translate-x-3 lg:shadow-[inset_0_0_0_2px_var(--color-brass),0_8px_20px_rgba(0,0,0,0.5)]"
                         : "opacity-80 hover:opacity-100"
                     }`}
                     style={swatchStyle(s.image, 3.6)}
                   >
-                    <span className="absolute inset-0 bg-gradient-to-r from-espresso/80 to-espresso/0" />
-                    <span className="relative px-3 pb-2 font-display font-medium text-cream">{s.name}</span>
+                    <span className="absolute inset-0 hidden bg-gradient-to-r from-espresso/80 to-espresso/0 sm:block" />
+                    <span className="sr-only sm:not-sr-only sm:relative sm:px-3 sm:pb-2 sm:font-display sm:font-medium sm:text-cream">{s.name}</span>
                   </button>
                 );
               })}
             </div>
-            <p className="mt-5 text-sm leading-relaxed text-dust">
+            <p className="mt-5 hidden text-sm leading-relaxed text-dust sm:block">
               Pracujemy też z: {otherSpecies.join(", ")}.
             </p>
           </div>
@@ -93,10 +93,12 @@ export function SpeciesSampler() {
             className="grid gap-8 lg:col-span-9 lg:grid-cols-9"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-board lg:col-span-5">
+              {/* Phones: a clean crop of the board itself; the full photo from 640px */}
+              <div aria-hidden className="absolute inset-0 sm:hidden" style={swatchStyle(active.image, 3.4)} />
               <AnimatePresence initial={false}>
                 <motion.div
                   key={active.id}
-                  className="absolute inset-0"
+                  className="absolute inset-0 hidden sm:block"
                   initial={{ clipPath: "inset(0 100% 0 0)" }}
                   animate={{ clipPath: "inset(0 0% 0 0)" }}
                   exit={{ opacity: 1 }}
@@ -127,8 +129,8 @@ export function SpeciesSampler() {
                     {active.name}
                   </h3>
                   <p className="mt-2 text-brass">{active.origin}</p>
-                  <p className="mt-6 leading-relaxed text-sand">{active.character}</p>
-                  <dl className="mt-8 space-y-6">
+                  <p className="mt-4 leading-relaxed text-sand sm:mt-6">{active.character}</p>
+                  <dl className="mt-8 hidden space-y-6 sm:block">
                     <Scale label="Twardość" value={active.hardness} low="miękkie" high="bardzo twarde" />
                     <Scale label="Odcień" value={active.tone} low="jasny" high="ciemny" />
                     <div className="hidden sm:block">
