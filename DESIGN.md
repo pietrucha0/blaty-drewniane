@@ -267,6 +267,17 @@ Any stock image carries a dust caption on an espresso scrim (80–85%) with 4px 
 ### Mobile Action Bar
 Below 640px a fixed bottom bar holds two equal buttons: outline "Zadzwoń teraz" with a phone icon, and brass "Wycena projektu". It is espresso at 90% with `backdrop-blur-md`, has a seam top border and 12px padding plus the safe area. It slides away (translateY 100%, 500ms ease-out-expo) while #kontakt is at least 15% on screen, so it never covers the form. The hero and footer reserve 112px of bottom padding on mobile for it.
 
+### Cursors (mouse only)
+
+The system cursor stays everywhere except two places. Both appear only when `(hover: hover) and (pointer: fine)` matches and the pointer is a mouse. JS adds `.has-custom-cursor` to `<html>`, and only `[data-cursor]` elements under it get `cursor: none`. Touch and no-JS never lose the cursor.
+- **Wood (`data-cursor="wood"`):** used only on species swatches (the hero rack, the tablet rail and the sampler tabs). It is a 30px disc of that swatch's own sample photo (`data-wood`, background-size 420% at 58% 50%) with a 1.5px cream ring and a soft drop shadow.
+- **Zobacz (`data-cursor="look"`):** used only on Oferta and Realizacje photos. It is a 56px cream disc with "Zobacz" in 0.75rem semibold espresso, and a click opens the lightbox.
+- Both scale in from 50% and fade (0.3s ease-out-expo; none under reduced motion). They re-resolve on scroll, so nothing sticks while the page moves under a still mouse, and they hide while the lightbox or the mobile menu is open.
+
+### Lightbox
+
+A native `<dialog>` opened with `showModal()`. The backdrop is espresso at 85% with blur. The image is `object-contain` on a board-coloured well, up to 1100px wide and 72svh tall. The caption puts the title (display type, cream) on the left and wood · "Zdjęcie poglądowe" (when the photo is stock) in dust on the right. A 44px close X sits above the image. Esc, the X or a click on the backdrop closes it, and focus returns to the photo's overlay button (`aria-label="Powiększ: {title}"`).
+
 ### Motion
 One easing for everything: ease-out-expo (`cubic-bezier(0.16, 1, 0.3, 1)`). `MotionConfig reducedMotion="user"` wraps the app, and smooth scrolling turns off under `prefers-reduced-motion`.
 

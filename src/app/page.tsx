@@ -5,6 +5,8 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { MobileBar } from "@/components/MobileBar";
+import { CustomCursor } from "@/components/CustomCursor";
+import { Lightbox } from "@/components/Lightbox";
 import { Offer } from "@/components/Offer";
 import { Process } from "@/components/Process";
 import { SpeciesSampler } from "@/components/SpeciesSampler";
@@ -30,6 +32,8 @@ export default function Home() {
       </main>
       <Footer />
       <MobileBar />
+      <Lightbox />
+      <CustomCursor />
     </>
   );
 }

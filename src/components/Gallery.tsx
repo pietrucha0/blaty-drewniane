@@ -5,6 +5,7 @@ import { useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
 import { galleryFilters, projects, type GalleryCategory } from "@/lib/content";
 import { Reveal, SectionHeading } from "./Reveal";
+import { ZoomButton } from "./Lightbox";
 
 export function Gallery() {
   const [filter, setFilter] = useState<"all" | GalleryCategory>("all");
@@ -79,6 +80,7 @@ export function Gallery() {
                   className={`object-cover transition-transform duration-[1.4s] ease-out-expo group-hover:scale-[1.06] ${p.placeholder ? "[filter:sepia(0.2)_saturate(0.85)_brightness(0.82)]" : ""}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/10 to-transparent" />
+                <ZoomButton item={{ image: p.image, alt: p.alt, title: p.title, wood: p.wood, placeholder: p.placeholder }} />
                 <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
                   <span className="hidden bg-cream px-2 py-0.5 text-xs font-semibold text-[#5a2e24] shadow-[0_2px_6px_rgba(0,0,0,0.35)] sm:inline-block">
                     {p.wood}

@@ -159,6 +159,11 @@ body {
   }
 }
 
+/* Custom cursors replace the system one only where they apply, and only once JS has enabled them */
+.has-custom-cursor [data-cursor] {
+  cursor: none;
+}
+
 /* Hide horizontal scrollbars on touch rails while keeping them scrollable */
 .rail {
   scrollbar-width: none;

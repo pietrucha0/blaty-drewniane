@@ -67,6 +67,8 @@ export function SpeciesSampler() {
                     aria-selected={selected}
                     aria-controls="species-panel"
                     onClick={() => setActiveId(s.id)}
+                    data-cursor="wood"
+                    data-wood={s.image.src}
                     className={`group relative flex h-14 w-full shrink-0 items-end sm:w-36 overflow-hidden text-left transition-[transform,box-shadow] duration-500 ease-out-expo lg:w-full ${
                       selected
                         ? "shadow-[inset_0_0_0_2px_var(--color-brass)] lg:translate-x-3 lg:shadow-[inset_0_0_0_2px_var(--color-brass),0_8px_20px_rgba(0,0,0,0.5)]"

@@ -96,6 +96,8 @@ export function Hero() {
                 <a
                   href="#gatunki"
                   onClick={() => selectSpecies(s.id)}
+                  data-cursor="wood"
+                  data-wood={s.image.src}
                   className="group relative flex h-16 items-end overflow-hidden shadow-[0_6px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out-expo hover:-translate-x-3"
                   style={swatchStyle(s.image)}
                 >
@@ -119,6 +121,8 @@ export function Hero() {
               <a
                 href="#gatunki"
                 onClick={() => selectSpecies(s.id)}
+                data-cursor="wood"
+                data-wood={s.image.src}
                 className="relative flex h-12 w-32 items-end overflow-hidden"
                 style={swatchStyle(s.image, 4)}
               >

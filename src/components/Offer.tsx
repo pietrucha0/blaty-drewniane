@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { offers } from "@/lib/content";
 import { Reveal, SectionHeading } from "./Reveal";
+import { ZoomButton } from "./Lightbox";
 
 export function Offer() {
   const [lead, ...rest] = offers;
@@ -29,6 +30,7 @@ export function Offer() {
                   sizes="(min-width: 1024px) 58vw, 100vw"
                   className="object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.04]"
                 />
+                <ZoomButton item={{ image: lead.image, alt: lead.imageAlt, title: lead.title, placeholder: lead.placeholder }} />
                 {lead.placeholder && <Placeholder />}
               </div>
               <div className="pt-4 sm:p-8 lg:pr-12">
@@ -53,6 +55,7 @@ export function Offer() {
                     sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 100vw"
                     className="object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.06]"
                   />
+                  <ZoomButton item={{ image: o.image, alt: o.imageAlt, title: o.title, placeholder: o.placeholder }} />
                   {o.placeholder && <Placeholder />}
                 </div>
                 <div className="pt-4 sm:p-6">
