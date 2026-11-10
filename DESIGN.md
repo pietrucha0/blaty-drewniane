@@ -280,7 +280,7 @@ One easing for everything: ease-out-expo (`cubic-bezier(0.16, 1, 0.3, 1)`). `Mot
 - **Hero:** photo in the top 44% of the screen, then the headline, one line and one primary button. The badges and species rail start at 640px.
 - **Dlaczego my?:** no workshop photo. The four reasons are icon plus title, and their body text starts at 640px.
 - **Oferta:** a native scroll-snap row (`snap-x snap-mandatory`, `scroll-px-4`). Cards are 80% wide so the next one peeks in, each a 4:5 image plus title. One line under the row says it can be swiped and that some photos are placeholders.
-- **Gatunki:** five swatches in one row of equal columns, with names kept for screen readers. The panel shows a close crop of the board (`swatchStyle` at 3.4×) instead of the granite photo, then the name, origin, one line and the enquiry link. The meters and "Pracujemy też z" start at 640px.
+- **Gatunki:** five swatches in one row of equal columns, with names kept for screen readers. The panel shows the full sample photo (as on desktop, with the clip-path wipe), then the name, origin, one line and the enquiry link. The meters and "Pracujemy też z" start at 640px.
 - **Realizacje:** four tiles plus a "Pokaż wszystkie (n)" outline button. Tiles carry only their title. One line under the grid replaces the per-tile placeholder badges.
 - **Jak pracujemy:** number and title only.
 - **Kontakt:** phones and e-mail only. Address and hours live in the footer.

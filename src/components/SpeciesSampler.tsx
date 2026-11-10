@@ -93,12 +93,10 @@ export function SpeciesSampler() {
             className="grid gap-8 lg:col-span-9 lg:grid-cols-9"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-board lg:col-span-5">
-              {/* Phones: a clean crop of the board itself; the full photo from 640px */}
-              <div aria-hidden className="absolute inset-0 sm:hidden" style={swatchStyle(active.image, 3.4)} />
               <AnimatePresence initial={false}>
                 <motion.div
                   key={active.id}
-                  className="absolute inset-0 hidden sm:block"
+                  className="absolute inset-0"
                   initial={{ clipPath: "inset(0 100% 0 0)" }}
                   animate={{ clipPath: "inset(0 0% 0 0)" }}
                   exit={{ opacity: 1 }}
