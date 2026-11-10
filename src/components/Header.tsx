@@ -2,9 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X } from "lucide-react";
+import { Hammer, Images, LayoutGrid, Menu, MessageCircle, Phone, TreeDeciduous, X } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Logo } from "./Logo";
 import { company, nav } from "@/lib/content";
+
+// One quiet line icon per section in the phone menu
+const navIcons: Record<string, LucideIcon> = {
+  "#o-nas": TreeDeciduous,
+  "#oferta": LayoutGrid,
+  "#realizacje": Images,
+  "#proces": Hammer,
+  "#kontakt": MessageCircle,
+};
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -84,78 +94,98 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu"
-            className="fixed inset-0 z-50 flex flex-col bg-espresso lg:hidden"
-            initial={{ clipPath: "inset(0 0 100% 0)" }}
-            animate={{ clipPath: "inset(0 0 0% 0)" }}
-            exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-50 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            {/* Same row as the header, so the close button sits where the menu button was */}
-            <div className="flex h-16 shrink-0 items-center justify-between px-[max(1.25rem,env(safe-area-inset-left))] sm:h-20 sm:px-10">
-              <a href="#top" onClick={() => setOpen(false)} aria-label="BlatyDrewniane.eu — strona główna">
-                <Logo />
-              </a>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Zamknij menu"
-                className="-mr-2 inline-flex size-11 items-center justify-center text-cream"
-                autoFocus
-              >
-                <X className="size-6" strokeWidth={1.5} aria-hidden />
-              </button>
-            </div>
-
-            <nav aria-label="Nawigacja mobilna" className="flex flex-1 flex-col justify-center overflow-y-auto px-[max(1.25rem,env(safe-area-inset-left))] sm:px-10">
-              <ul className="space-y-1">
-                {nav.map((item, i) => (
-                  <motion.li
-                    key={item.href}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    <a
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="inline-block py-1.5 font-display text-[clamp(2rem,6.5svh,2.6rem)] font-medium leading-[1.1] tracking-[-0.03em] text-cream transition-colors active:text-brass"
-                    >
-                      {item.label}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </nav>
+            {/* The page stays visible, dimmed, below the panel */}
+            <button
+              type="button"
+              aria-label="Zamknij menu"
+              tabIndex={-1}
+              className="absolute inset-0 bg-espresso/60 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+            />
 
             <motion.div
-              className="shrink-0 px-[max(1.25rem,env(safe-area-inset-left))] pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.45, duration: 0.5 }}
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
+              className="absolute inset-x-0 top-0 max-h-[100svh] overflow-y-auto border-b border-seam bg-umber shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)]"
+              initial={{ clipPath: "inset(0 0 100% 0)" }}
+              animate={{ clipPath: "inset(0 0 0% 0)" }}
+              exit={{ clipPath: "inset(0 0 100% 0)" }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div aria-hidden className="tick-rule w-40" />
-              <div className="mt-6 flex items-end justify-between gap-4">
-                <div>
-                  <p className="text-sm text-dust">Zadzwoń</p>
-                  <a href={company.phones[0].href} className="mt-1 block font-display text-2xl font-medium tabular-nums text-cream">
-                    {company.phones[0].display}
+              {/* Same row as the header, so the close button sits where the menu button was */}
+              <div className="flex h-16 items-center justify-between px-[max(1.25rem,env(safe-area-inset-left))] sm:h-20 sm:px-10">
+                <a href="#top" onClick={() => setOpen(false)} aria-label="BlatyDrewniane.eu — strona główna">
+                  <Logo />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Zamknij menu"
+                  className="-mr-2 inline-flex size-11 items-center justify-center text-cream"
+                  autoFocus
+                >
+                  <X className="size-6" strokeWidth={1.5} aria-hidden />
+                </button>
+              </div>
+
+              <nav aria-label="Nawigacja mobilna" className="px-[max(1.25rem,env(safe-area-inset-left))] pb-2 pt-2 sm:px-10">
+                <ul>
+                  {nav.map((item, i) => {
+                    const Icon = navIcons[item.href] ?? LayoutGrid;
+                    return (
+                      <motion.li
+                        key={item.href}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.12 + i * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <a
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="group flex items-center gap-4 py-2.5 text-cream transition-colors active:text-brass"
+                        >
+                          <span className="flex size-10 shrink-0 items-center justify-center border border-seam text-brass transition-colors group-active:border-brass">
+                            <Icon className="size-[18px]" strokeWidth={1.5} aria-hidden />
+                          </span>
+                          <span className="font-display text-[1.375rem] font-medium tracking-[-0.02em]">{item.label}</span>
+                        </a>
+                      </motion.li>
+                    );
+                  })}
+                </ul>
+              </nav>
+
+              <motion.div
+                className="border-t border-seam px-[max(1.25rem,env(safe-area-inset-left))] pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 sm:px-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35, duration: 0.4 }}
+              >
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={company.phones[0].href}
+                    className="btn btn-outline btn-noarrow flex h-12 items-center justify-center text-sm font-semibold"
+                  >
+                    <Phone className="size-4" aria-hidden />
+                    Zadzwoń
+                  </a>
+                  <a
+                    href="#kontakt"
+                    onClick={() => setOpen(false)}
+                    className="btn btn-primary btn-noarrow flex h-12 items-center justify-center text-sm font-semibold"
+                  >
+                    Wycena projektu
                   </a>
                 </div>
-                <a href={`mailto:${company.email}`} className="pb-1 text-sm text-sand underline decoration-seam underline-offset-4">
-                  E-mail
-                </a>
-              </div>
-              <a
-                href="#kontakt"
-                onClick={() => setOpen(false)}
-                className="btn btn-primary mt-6 flex h-12 items-center justify-center font-semibold"
-              >
-                Wycena projektu
-              </a>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
