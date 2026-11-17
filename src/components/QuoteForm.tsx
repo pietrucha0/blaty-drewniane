@@ -26,7 +26,8 @@ export function QuoteForm() {
     if ((data.name ?? "").trim().length < 2) next.name = "Podaj imię.";
     const digits = (data.phone ?? "").replace(/\D/g, "");
     if (digits.length < 9) next.phone = "Podaj numer telefonu, np. 600 123 456.";
-    if (!data.type) next.type = "Wybierz typ projektu.";
+    data.type = (data.type ?? "").trim();
+    if (!data.type) next.type = "Wybierz z listy albo wpisz, co chcesz zamówić.";
     setErrors(next);
     if (Object.keys(next).length) {
       document.getElementById(`q-${Object.keys(next)[0]}`)?.focus();
@@ -136,23 +137,23 @@ export function QuoteForm() {
 
       <Field id="q-type" label="Typ projektu" error={errors.type}>
         <div className="relative">
-          <select
+          {/* Pick a suggestion or type your own */}
+          <input
             id="q-type"
             name="type"
-            defaultValue=""
+            list="q-type-options"
+            autoComplete="off"
+            maxLength={80}
+            placeholder="Wybierz lub wpisz, np. parapet"
             aria-invalid={!!errors.type}
             aria-describedby={errors.type ? "q-type-err" : undefined}
-            className={`${field} appearance-none pr-12`}
-          >
-            <option value="" disabled>
-              Wybierz…
-            </option>
+            className={`${field} pr-12`}
+          />
+          <datalist id="q-type-options">
             {projectTypes.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
+              <option key={t} value={t} />
             ))}
-          </select>
+          </datalist>
           <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-dust" aria-hidden />
         </div>
       </Field>

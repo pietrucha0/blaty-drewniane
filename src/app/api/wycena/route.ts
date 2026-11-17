@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 
-const TYPES = ["Blat", "Stół", "Mebel na wymiar", "Inne"];
-
 export type QuotePayload = {
   name: string;
   phone: string;
@@ -17,7 +15,8 @@ function validate(body: Partial<QuotePayload>) {
   const digits = phone.replace(/\D/g, "");
   if (name.length < 2) errors.name = "Podaj imię.";
   if (digits.length < 9 || digits.length > 15) errors.phone = "Podaj numer telefonu, np. 600 123 456.";
-  if (!TYPES.includes(body.type ?? "")) errors.type = "Wybierz typ projektu.";
+  const type = (body.type ?? "").trim();
+  if (!type || type.length > 80) errors.type = "Wybierz z listy albo wpisz, co chcesz zamówić.";
   if ((body.message ?? "").length > 3000) errors.message = "Opis może mieć najwyżej 3000 znaków.";
   return errors;
 }
@@ -54,7 +53,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         name: body.name!.trim(),
         phone: body.phone!.trim(),
-        type: body.type,
+        type: body.type!.trim(),
         message: (body.message ?? "").trim(),
         receivedAt: new Date().toISOString(),
         source: "blatydrewniane.eu / formularz wyceny",
