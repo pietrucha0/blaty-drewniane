@@ -1,18 +1,18 @@
 import Image from "next/image";
-import logoImg from "../../public/images/logo-blatydrewniane.png";
+import logoImg from "../../public/images/logo-blatydrewniane-jasne.svg";
 
-// The owner's existing raster logo (from meblekw.pl), shown on a cream label
-// exactly like the label stuck on the company's wood samples.
+// The owner's logo, traced to SVG with a transparent background. This is the
+// light variant for the site's dark surfaces: the brown parts are cream so the
+// tree and wordmark stay legible on umber; the yellow is unchanged.
+// The original brown version lives at /images/logo-blatydrewniane.svg.
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span
-      className={`inline-flex items-center bg-cream px-2 py-1 shadow-[0_2px_8px_rgba(0,0,0,0.35)] ${className}`}
-    >
+    <span className={`inline-flex items-center ${className}`}>
       <Image
         src={logoImg}
         alt="BlatyDrewniane.eu — naturalnie…"
         priority
-        className="h-9 w-auto sm:h-10"
+        className="h-11 w-auto sm:h-12"
       />
     </span>
   );

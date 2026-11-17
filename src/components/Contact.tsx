@@ -42,12 +42,29 @@ export function Contact() {
                   <span className="break-all text-cream transition-colors group-hover:text-brass">{company.email}</span>
                 </a>
               </li>
-              <li className="hidden items-start gap-4 border-b border-seam py-5 sm:flex">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
-                <span className="text-sand">
-                  {company.address ?? "Warsztat odwiedzisz po wcześniejszym umówieniu — adres podamy telefonicznie."}
-                </span>
-              </li>
+              {company.address && company.mapsUrl ? (
+                <li className="border-b border-seam">
+                  <a
+                    href={company.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-4 py-5"
+                  >
+                    <MapPin className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
+                    <span className="text-cream transition-colors group-hover:text-brass">
+                      {company.address}
+                      <span className="mt-1 block text-sm text-sand">Pokaż na mapie</span>
+                    </span>
+                  </a>
+                </li>
+              ) : (
+                <li className="hidden items-start gap-4 border-b border-seam py-5 sm:flex">
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
+                  <span className="text-sand">
+                    {company.address ?? "Warsztat odwiedzisz po wcześniejszym umówieniu — adres podamy telefonicznie."}
+                  </span>
+                </li>
+              )}
               <li className="hidden items-start gap-4 py-5 sm:flex">
                 <Clock className="mt-0.5 size-5 shrink-0 text-brass" strokeWidth={1.5} aria-hidden />
                 <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sand">

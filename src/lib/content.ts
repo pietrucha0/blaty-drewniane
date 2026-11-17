@@ -31,8 +31,9 @@ export const company = {
   ],
   // TODO: potwierdzić numer WhatsApp, np. "https://wa.me/48600233853".
   whatsapp: null as string | null,
-  // TODO: uzupełnić adres warsztatu.
-  address: null as string | null,
+  address: "Osipy Kolonia 33, 18-200 Wysokie Mazowieckie" as string | null,
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Osipy%20Kolonia%2033%2C%2018-200%20Wysokie%20Mazowieckie" as string | null,
   hours: [
     { days: "Poniedziałek – piątek", time: "9:00 – 16:00" },
     { days: "Sobota", time: "10:00 – 14:00" },
@@ -298,4 +299,4 @@ export const steps = [
   },
 ];
 
-export const projectTypes = ["Blat", "Stół", "Mebel na wymiar", "Inne"] as const;
+export const projectTypes = ["Blat kuchenny", "Blat łazienkowy", "Stół", "Biurko", "Konsola", "Komoda", "Wyspa"] as const;
