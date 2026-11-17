@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { offers } from "@/lib/content";
 import { Reveal, SectionHeading } from "./Reveal";
 import { ZoomButton } from "./Lightbox";
 
 export function Offer() {
   const [lead, ...rest] = offers;
+  // Desktop: the first three sit beside the lead card, the rest share a row with the closing card.
   return (
     <section id="oferta" aria-labelledby="oferta-title" className="bg-umber py-24 sm:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
@@ -12,7 +14,7 @@ export function Offer() {
           <SectionHeading
             id="oferta-title"
             title="Nasza oferta"
-            lead="Blaty to nasza specjalność. Z tego samego drewna robimy też meble."
+            lead="Kuchnie, zabudowy i meble na wymiar. Blaty z litego drewna to nasza specjalność."
           />
         </Reveal>
 
@@ -43,8 +45,8 @@ export function Offer() {
             </article>
           </div>
 
-          {rest.map((o) => (
-            <div key={o.title} className="w-[80%] shrink-0 snap-start bg-umber sm:w-auto lg:col-span-5">
+          {rest.map((o, i) => (
+            <div key={o.title} className={`w-[80%] shrink-0 snap-start bg-umber sm:w-auto ${i < 3 ? "lg:col-span-5" : "lg:col-span-4"}`}>
               <article className="group grid h-full grid-cols-1 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                 <div className="relative aspect-[4/5] overflow-hidden sm:aspect-auto sm:min-h-56">
                   <Image
@@ -66,6 +68,28 @@ export function Offer() {
               </article>
             </div>
           ))}
+
+          {/* Closing card: anything else, made to measure */}
+          <div className="w-[80%] shrink-0 snap-start bg-board sm:w-auto lg:col-span-4">
+            <a
+              href="#kontakt"
+              className="group flex aspect-[4/5] h-full flex-col justify-between p-6 sm:aspect-auto sm:min-h-56 sm:p-8"
+            >
+              <span className="font-display text-sm font-medium uppercase tracking-[0.18em] text-brass">Na wymiar</span>
+              <span>
+                <span className="block font-display text-xl font-semibold leading-tight tracking-[-0.02em] text-cream sm:text-3xl">
+                  Nie widzisz tu swojego mebla?
+                </span>
+                <span className="mt-3 block max-w-[40ch] leading-relaxed text-sand">
+                  Zrobimy go na wymiar. Ławkę, parapet, półkę czy blat do biura: każdy mebel z litego drewna, dopasowany do Twojego wnętrza.
+                </span>
+                <span className="mt-6 inline-flex items-center gap-2 font-semibold text-brass transition-colors group-hover:text-cream">
+                  Opisz swój projekt
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
+                </span>
+              </span>
+            </a>
+          </div>
         </div>
         </Reveal>
         <p className="mt-6 text-sm text-dust sm:hidden">Przesuń, żeby zobaczyć więcej. Część zdjęć jest poglądowa.</p>

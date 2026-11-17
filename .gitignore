@@ -46,3 +46,6 @@ next-env.d.ts
 /.impeccable/hook.cache.json
 /.impeccable/build/
 /.impeccable/mocks/
+
+# Original phone photos (HEIC); web versions live in public/images/real
+/zdjecia/

@@ -1,20 +1,26 @@
 import type { StaticImageData } from "next/image";
 import dabImg from "../../public/images/real/dab.webp";
 import jesionImg from "../../public/images/real/jesion.webp";
+import komodaDabImg from "../../public/images/real/komoda-dab.webp";
 import konsolaJesionImg from "../../public/images/real/konsola-jesion.webp";
+import kuchniaKremowaImg from "../../public/images/real/kuchnia-kremowa.webp";
+import kuchniaKremowaFrontImg from "../../public/images/real/kuchnia-kremowa-front.webp";
+import kuchniaOrzechDetalImg from "../../public/images/real/kuchnia-orzech-detal.webp";
+import kuchniaOrzechJadalniaImg from "../../public/images/real/kuchnia-orzech-jadalnia.webp";
+import kuchniaOrzechWyspaImg from "../../public/images/real/kuchnia-orzech-wyspa.webp";
+import lazienkaSzafkaImg from "../../public/images/real/lazienka-szafka.webp";
+import sypialniaPanelImg from "../../public/images/real/sypialnia-panel.webp";
+import sypialniaZabudowaImg from "../../public/images/real/sypialnia-zabudowa.webp";
+import szafaSkosImg from "../../public/images/real/szafa-skos.webp";
 import orzechImg from "../../public/images/real/orzech.webp";
 import tatajubaImg from "../../public/images/real/tatajuba.webp";
 import tauariImg from "../../public/images/real/tauari.webp";
-import blatKuchniaImg from "../../public/images/stock/blat-kuchnia.webp";
-import blatWyspaJasnyImg from "../../public/images/stock/blat-wyspa-jasny.webp";
-import komodaImg from "../../public/images/stock/komoda.webp";
-import lazienkaImg from "../../public/images/stock/lazienka.webp";
-import regalImg from "../../public/images/stock/regal.webp";
+import biurkoZabudowaImg from "../../public/images/stock/biurko-zabudowa.webp";
 import stolDetalImg from "../../public/images/stock/stol-detal.webp";
 import stolJadalniaImg from "../../public/images/stock/stol-jadalnia.webp";
 import stolLiveEdgeImg from "../../public/images/stock/stol-live-edge.webp";
 import stolOrzechImg from "../../public/images/stock/stol-orzech.webp";
-import wyspaImg from "../../public/images/stock/wyspa.webp";
+import stolikKawowyImg from "../../public/images/stock/stolik-kawowy.webp";
 
 // Single source of truth for site copy and data.
 // Fields marked TODO are placeholders the owner must confirm or replace.
@@ -136,12 +142,12 @@ export type Offer = {
 
 export const offers: Offer[] = [
   {
-    title: "Blaty z litego drewna",
-    lead: "Kuchenne, łazienkowe i barowe, docięte do Twojej zabudowy.",
-    items: ["Olejowosk lub lakier", "Wyspy i blaty narożne", "Dowolna grubość i kształt"],
-    image: blatKuchniaImg,
-    imageAlt: "Długi drewniany blat kuchenny w jasnej kuchni",
-    placeholder: true,
+    title: "Kuchnie i blaty na wymiar",
+    lead: "Całe kuchnie z zabudową i wyspą albo sam blat z litego drewna, docięty do Twoich szafek.",
+    items: ["Kuchnie pod klucz", "Wyspy i blaty narożne", "Blaty z litego drewna"],
+    image: kuchniaOrzechJadalniaImg,
+    imageAlt: "Kuchnia w okleinie orzechowej z marmurową wyspą, otwarta na jadalnię",
+    placeholder: false,
   },
   {
     title: "Stoły jadalniane i kawowe",
@@ -152,24 +158,40 @@ export const offers: Offer[] = [
     placeholder: true,
   },
   {
-    title: "Meble i zabudowy na zamówienie",
-    lead: "Regały, szafki RTV, konsole, wyspy i zabudowy wnęk.",
-    items: ["Konsole i regały", "Szafki RTV i komody", "Zabudowy wnęk"],
-    image: regalImg,
-    imageAlt: "Regał z ciemnego drewna",
+    title: "Szafy i zabudowy",
+    lead: "Szafy wnękowe, panele ścienne i zabudowy dopasowane co do centymetra.",
+    items: ["Szafy wnękowe", "Panele za łóżkiem", "Zabudowy wnęk"],
+    image: sypialniaZabudowaImg,
+    imageAlt: "Sypialnia z drewnianymi panelami za łóżkiem i podświetlaną wnęką oraz szafą wnękową",
+    placeholder: false,
+  },
+  {
+    title: "Biurka i gabinety",
+    lead: "Biurka z litego blatu, także z regałem lub zabudową wokół.",
+    items: ["Biurka do pracy", "Zabudowy gabinetów", "Wymiar pod wnękę"],
+    image: biurkoZabudowaImg,
+    imageAlt: "Drewniane biurko na tle podświetlonej zabudowy z półkami",
     placeholder: true,
   },
   {
-    title: "Drewno egzotyczne",
-    lead: "Tatajuba, tauari, iroko i merbau.",
-    items: ["Tatajuba, tauari", "Iroko, merbau", "Do kuchni i łazienki"],
-    image: tatajubaImg,
-    imageAlt: "Próbka drewna tatajuba na granitowych kamieniach",
+    title: "Stoliki kawowe",
+    lead: "Niskie stoliki z grubego drewna do salonu.",
+    items: ["Z półką lub bez", "Naturalna krawędź", "Dowolny wymiar"],
+    image: stolikKawowyImg,
+    imageAlt: "Masywny drewniany stolik kawowy z półką",
+    placeholder: true,
+  },
+  {
+    title: "Komody i szafki",
+    lead: "Komody, szafki RTV i szafki łazienkowe, z frontami dopasowanymi do wnętrza.",
+    items: ["Komody i ławki", "Szafki RTV", "Szafki pod umywalkę"],
+    image: komodaDabImg,
+    imageAlt: "Długa dębowa szafka połączona z wysokim słupkiem",
     placeholder: false,
   },
 ];
 
-export type GalleryCategory = "blaty" | "stoly" | "inne";
+export type GalleryCategory = "kuchnie" | "stoly" | "inne";
 
 export type Project = {
   title: string;
@@ -179,17 +201,95 @@ export type Project = {
   alt: string;
   placeholder: boolean;
   tall?: boolean;
+  wide?: boolean;
 };
 
 export const galleryFilters: { id: "all" | GalleryCategory; label: string }[] = [
   { id: "all", label: "Wszystkie" },
-  { id: "blaty", label: "Blaty" },
+  { id: "kuchnie", label: "Kuchnie" },
   { id: "stoly", label: "Stoły" },
-  { id: "inne", label: "Inne meble" },
+  { id: "inne", label: "Meble i zabudowy" },
 ];
 
 // placeholder: true = zdjęcie poglądowe z Unsplash, do podmiany na własną realizację.
 export const projects: Project[] = [
+  {
+    title: "Kuchnia z orzecha z marmurową wyspą",
+    category: "kuchnie",
+    wood: "Nasza realizacja",
+    image: kuchniaOrzechWyspaImg,
+    alt: "Kuchnia w okleinie orzechowej z wyspą z marmurowym blatem i jadalnią w tle",
+    placeholder: false,
+    wide: true,
+  },
+  {
+    title: "Zabudowa z piekarnikami w słupku",
+    category: "kuchnie",
+    wood: "Nasza realizacja",
+    image: kuchniaOrzechDetalImg,
+    alt: "Wysoka zabudowa kuchenna w okleinie orzechowej z wbudowanymi piekarnikami i wyspą",
+    placeholder: false,
+    tall: true,
+  },
+  {
+    title: "Szafa i panele za łóżkiem",
+    category: "inne",
+    wood: "Nasza realizacja",
+    image: sypialniaZabudowaImg,
+    alt: "Sypialnia z drewnianymi panelami za łóżkiem, podświetlaną wnęką i białą szafą wnękową",
+    placeholder: false,
+  },
+  {
+    title: "Kuchnia kremowa z drewnianym blatem",
+    category: "kuchnie",
+    wood: "Nasza realizacja",
+    image: kuchniaKremowaImg,
+    alt: "Wąska kuchnia z kremowymi frontami, drewnianym blatem i podświetleniem pod szafkami",
+    placeholder: false,
+    tall: true,
+  },
+  {
+    title: "Szafka pod umywalkę",
+    category: "inne",
+    wood: "Nasza realizacja",
+    image: lazienkaSzafkaImg,
+    alt: "Grafitowa wisząca szafka pod umywalkę w łazience z podświetlanym lustrem",
+    placeholder: false,
+    tall: true,
+  },
+  {
+    title: "Kuchnia w zabudowie do sufitu",
+    category: "kuchnie",
+    wood: "Nasza realizacja",
+    image: kuchniaKremowaFrontImg,
+    alt: "Prosta kuchnia z kremowymi frontami, drewnianym blatem i ścianą z ciemnego drewna",
+    placeholder: false,
+  },
+  {
+    title: "Szafa pod skosem",
+    category: "inne",
+    wood: "Nasza realizacja",
+    image: szafaSkosImg,
+    alt: "Szara szafa wnękowa na całą ścianę, dopasowana do skosu dachu",
+    placeholder: false,
+    wide: true,
+  },
+  {
+    title: "Panel ścienny za łóżkiem",
+    category: "inne",
+    wood: "Nasza realizacja",
+    image: sypialniaPanelImg,
+    alt: "Drewniany panel ścienny z motywem liści za łóżkiem z kinkietami",
+    placeholder: false,
+  },
+  {
+    title: "Dębowa szafka ze słupkiem",
+    category: "inne",
+    wood: "Nasza realizacja",
+    image: komodaDabImg,
+    alt: "Długa dębowa szafka połączona z wysokim słupkiem",
+    placeholder: false,
+  },
   {
     title: "Konsola z jesionu na stalowej ramie",
     category: "inne",
@@ -199,28 +299,11 @@ export const projects: Project[] = [
     placeholder: false,
   },
   {
-    title: "Blat wyspy kuchennej",
-    category: "blaty",
-    wood: "Dąb rustykalny",
-    image: blatWyspaJasnyImg,
-    alt: "Kuchnia z drewnianą wyspą i zabudową",
-    placeholder: true,
-  },
-  {
     title: "Stół live-edge do jadalni",
     category: "stoly",
     wood: "Dąb",
     image: stolLiveEdgeImg,
     alt: "Masywny stół z naturalną krawędzią widziany z góry",
-    placeholder: true,
-    tall: true,
-  },
-  {
-    title: "Blaty łazienkowe pod umywalki",
-    category: "blaty",
-    wood: "Dąb olejowany",
-    image: lazienkaImg,
-    alt: "Łazienka z drewnianą szafką i blatem pod umywalkę",
     placeholder: true,
   },
   {
@@ -229,22 +312,6 @@ export const projects: Project[] = [
     wood: "Orzech europejski",
     image: stolJadalniaImg,
     alt: "Drewniany stół jadalniany z krzesłami",
-    placeholder: true,
-  },
-  {
-    title: "Wyspa z ciemnego drewna",
-    category: "blaty",
-    wood: "Orzech amerykański",
-    image: wyspaImg,
-    alt: "Otwarta kuchnia z wyspą z ciemnego drewna",
-    placeholder: true,
-  },
-  {
-    title: "Komoda z frezowanymi frontami",
-    category: "inne",
-    wood: "Dąb naturalny",
-    image: komodaImg,
-    alt: "Niska komoda z drewna z dekoracjami",
     placeholder: true,
   },
   {

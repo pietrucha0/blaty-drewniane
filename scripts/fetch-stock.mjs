@@ -14,6 +14,8 @@ const list = {
   "komoda": "1767963758785-b9def36c13e3",
   "warsztat-olowek": "1659930087003-2d64e33181f7",
   "warsztat-dluto": "1631396326838-de37e5f8bcbc",
+  "biurko-zabudowa": "1772475385529-92037713a057",
+  "stolik-kawowy": "1777513538143-8525eb3943f6",
 };
 for (const [name, id] of Object.entries(list)) {
   const url = `https://images.unsplash.com/photo-${id}?w=1800&q=80`;

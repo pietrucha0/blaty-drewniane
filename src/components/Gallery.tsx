@@ -1,18 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { galleryFilters, projects, type GalleryCategory } from "@/lib/content";
 import { Reveal, SectionHeading } from "./Reveal";
 import { ZoomButton } from "./Lightbox";
 
 export function Gallery() {
   const [filter, setFilter] = useState<"all" | GalleryCategory>("all");
-  // Phones show four projects first; the rest on request.
+  // Collapsed by default: phones show five projects (the wide one fills a row);
+  // tablets and desktops show two rows with the third fading out. The rest on request.
   const [expanded, setExpanded] = useState(false);
-  const PHONE_LIMIT = 4;
+  const PHONE_LIMIT = 5;
   const visible = projects.filter((p) => filter === "all" || p.category === filter);
+  const collapsible = visible.length > 6;
+  const collapsed = collapsible && !expanded;
+
+  // After the list shrinks, jump back to the section heading so the visitor
+  // isn't left far down the page in the next section.
+  const scrollBack = useRef(false);
+  function collapse() {
+    scrollBack.current = true;
+    setExpanded(false);
+  }
+  useEffect(() => {
+    if (expanded || !scrollBack.current) return;
+    scrollBack.current = false;
+    const el = document.getElementById("realizacje");
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: "instant" });
+  }, [expanded]);
 
   return (
     <section id="realizacje" aria-labelledby="realizacje-title" className="bg-umber py-24 sm:py-32">
@@ -22,7 +40,7 @@ export function Gallery() {
             <SectionHeading
               id="realizacje-title"
               title="Wybrane realizacje"
-              lead="Blaty, stoły i meble z naszego warsztatu."
+              lead="Kuchnie, zabudowy i meble, które zrobiliśmy u klientów."
             />
           </Reveal>
 
@@ -59,8 +77,10 @@ export function Gallery() {
           </LayoutGroup>
         </div>
 
+        <div className="relative">
         <ul
-          className="mt-10 grid grid-flow-dense sm:mt-12 auto-rows-[minmax(11rem,26vw)] grid-cols-2 gap-2 sm:auto-rows-[18rem] sm:gap-3 lg:grid-cols-3 lg:auto-rows-[20rem]"
+          id="realizacje-lista"
+          className={`${collapsed ? "sm:max-h-[42rem] sm:overflow-hidden lg:max-h-[46rem]" : ""} mt-10 grid grid-flow-dense sm:mt-12 auto-rows-[minmax(11rem,26vw)] grid-cols-2 gap-2 sm:auto-rows-[18rem] sm:gap-3 lg:grid-cols-3 lg:auto-rows-[20rem]`}
         >
             {visible.map((p, i) => (
               <motion.li
@@ -69,7 +89,7 @@ export function Gallery() {
                 initial={{ opacity: 0.3, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className={`group relative overflow-hidden bg-board ${p.tall ? "lg:row-span-2" : ""} ${!expanded && i >= PHONE_LIMIT ? "hidden sm:block" : ""}`}
+                className={`group relative overflow-hidden bg-board ${p.tall ? "lg:row-span-2" : ""} ${p.wide ? "col-span-2" : ""} ${collapsed && i >= PHONE_LIMIT ? "hidden sm:block" : ""}`}
               >
                 <Image
                   src={p.image}
@@ -97,11 +117,23 @@ export function Gallery() {
               </motion.li>
             ))}
         </ul>
+        {/* Fade the cut-off row into the section background */}
+        {collapsed && (
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-24 bg-gradient-to-t from-umber via-umber/70 to-transparent sm:block" />
+        )}
+        </div>
 
-        <div className="mt-6 flex flex-col items-start gap-5 sm:hidden">
-          {!expanded && visible.length > PHONE_LIMIT && (
-            <button type="button" onClick={() => setExpanded(true)} className="btn btn-outline inline-flex h-11 items-center px-5 text-sm font-semibold">
-              Pokaż wszystkie ({visible.length})
+        <div className="mt-8 flex flex-col items-start gap-5 sm:items-center">
+          {collapsible && (
+            <button
+              type="button"
+              aria-expanded={expanded}
+              aria-controls="realizacje-lista"
+              onClick={expanded ? collapse : () => setExpanded(true)}
+              className="btn btn-outline inline-flex h-11 items-center gap-2 px-6 text-sm font-semibold"
+            >
+              {expanded ? "Zwiń realizacje" : `Pokaż wszystkie realizacje (${visible.length})`}
+              <ChevronDown className={`size-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} aria-hidden />
             </button>
           )}
           <p className="text-sm text-dust">Część zdjęć jest poglądowa.</p>
