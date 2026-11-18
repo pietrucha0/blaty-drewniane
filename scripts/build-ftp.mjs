@@ -40,6 +40,20 @@ writeFileSync(
   "out/.htaccess",
   `ErrorDocument 404 /404.html
 
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # One address for Google: https://www.blatydrewniane.eu (same as the sitemap).
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} !^www\\. [NC]
+  RewriteRule ^(.*)$ https://www.blatydrewniane.eu/$1 [R=301,L]
+
+  # Pages of the old shop (e.g. /blaty-z-drewna-egzotycznego-c-1.html,
+  # /product_info.php) are still in Google: send them to the new home page.
+  RewriteCond %{REQUEST_URI} !^/(index|404)\\.html$
+  RewriteRule ^[^/]+\\.(html?|php)$ https://www.blatydrewniane.eu/? [R=301,L]
+</IfModule>
+
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
 </IfModule>
