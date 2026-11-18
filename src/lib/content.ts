@@ -16,9 +16,6 @@ import orzechImg from "../../public/images/real/orzech.webp";
 import tatajubaImg from "../../public/images/real/tatajuba.webp";
 import tauariImg from "../../public/images/real/tauari.webp";
 import biurkoZabudowaImg from "../../public/images/stock/biurko-zabudowa.webp";
-import stolDetalImg from "../../public/images/stock/stol-detal.webp";
-import stolJadalniaImg from "../../public/images/stock/stol-jadalnia.webp";
-import stolLiveEdgeImg from "../../public/images/stock/stol-live-edge.webp";
 import stolOrzechImg from "../../public/images/stock/stol-orzech.webp";
 import stolikKawowyImg from "../../public/images/stock/stolik-kawowy.webp";
 
@@ -207,7 +204,6 @@ export type Project = {
 export const galleryFilters: { id: "all" | GalleryCategory; label: string }[] = [
   { id: "all", label: "Wszystkie" },
   { id: "kuchnie", label: "Kuchnie" },
-  { id: "stoly", label: "Stoły" },
   { id: "inne", label: "Meble i zabudowy" },
 ];
 
@@ -297,32 +293,7 @@ export const projects: Project[] = [
     image: konsolaJesionImg,
     alt: "Wąska konsola z jesionowym blatem i półką na czarnej stalowej ramie",
     placeholder: false,
-  },
-  {
-    title: "Stół live-edge do jadalni",
-    category: "stoly",
-    wood: "Dąb",
-    image: stolLiveEdgeImg,
-    alt: "Masywny stół z naturalną krawędzią widziany z góry",
-    placeholder: true,
-  },
-  {
-    title: "Stół jadalniany",
-    category: "stoly",
-    wood: "Orzech europejski",
-    image: stolJadalniaImg,
-    alt: "Drewniany stół jadalniany z krzesłami",
-    placeholder: true,
-  },
-  {
-    title: "Stół na skośnych nogach",
-    category: "stoly",
-    wood: "Orzech",
-    image: stolDetalImg,
-    alt: "Ciemny drewniany stół w pustym, jasnym wnętrzu",
-    placeholder: true,
-  },
-];
+  },];
 
 export const reasons = [
   {
