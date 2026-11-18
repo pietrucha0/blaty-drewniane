@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, LoaderCircle, Mail, Send } from "lucide-react";
+import { Check, LoaderCircle, Mail, Send } from "lucide-react";
 import { company, projectTypes } from "@/lib/content";
 
 // Public Web3Forms access key (safe to ship); an env var can override it.
@@ -137,7 +138,7 @@ export function QuoteForm() {
       </div>
 
       <Field id="q-type" label="Typ projektu" error={errors.type}>
-        <div className="relative">
+        <div>
           {/* Pick a suggestion or type your own */}
           <input
             id="q-type"
@@ -148,14 +149,13 @@ export function QuoteForm() {
             placeholder="Wybierz lub wpisz, np. parapet"
             aria-invalid={!!errors.type}
             aria-describedby={errors.type ? "q-type-err" : undefined}
-            className={`${field} pr-12`}
+            className={field}
           />
           <datalist id="q-type-options">
             {projectTypes.map((t) => (
               <option key={t} value={t} />
             ))}
           </datalist>
-          <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-dust" aria-hidden />
         </div>
       </Field>
 
@@ -215,7 +215,13 @@ export function QuoteForm() {
       </AnimatePresence>
 
       <p className="text-xs leading-relaxed text-dust">
-        Dane z formularza wykorzystamy wyłącznie, żeby odpowiedzieć na Twoje zapytanie.
+        Administratorem danych jest {company.legalName}. Dane z formularza przetwarzamy, żeby odpowiedzieć na
+        zapytanie i przygotować wycenę (art. 6 ust. 1 lit. b RODO). Masz prawo dostępu do danych, ich poprawienia
+        i usunięcia. Szczegóły w{" "}
+        <Link href="/polityka-prywatnosci/" className="text-sand underline hover:text-brass">
+          polityce prywatności
+        </Link>
+        .
       </p>
     </form>
   );

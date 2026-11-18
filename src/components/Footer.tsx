@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { company, nav } from "@/lib/content";
 import { Logo } from "./Logo";
 
@@ -93,9 +94,17 @@ export function Footer() {
 
       <div className="mx-auto mt-14 flex max-w-[1440px] flex-col gap-2 border-t border-seam px-4 pt-6 text-sm text-dust sm:flex-row sm:justify-between sm:px-8">
         <p>
-          © {year} {company.legalName} · NIP {company.nip}
+          © {year} {company.legalName} · NIP {company.nip} ·{" "}
+          <Link href="/polityka-prywatnosci/" className="underline hover:text-brass">
+            Polityka prywatności
+          </Link>
         </p>
-        <p>{company.brand} — {company.tagline}</p>
+        <p>
+          Strona zrobiona przez{" "}
+          <a href="mailto:nataliawojcik09@yahoo.com" className="underline hover:text-brass">
+            nataliawojcik09@yahoo.com
+          </a>
+        </p>
       </div>
     </footer>
   );

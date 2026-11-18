@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { galleryFilters, projects, type GalleryCategory } from "@/lib/content";
@@ -18,18 +18,27 @@ export function Gallery() {
   const collapsible = visible.length > 6;
   const collapsed = collapsible && !expanded;
 
-  // After the list shrinks, jump back to the section heading so the visitor
-  // isn't left far down the page in the next section.
-  const scrollBack = useRef(false);
-  function collapse() {
-    scrollBack.current = true;
-    setExpanded(false);
+  // Expanding or collapsing keeps the page where it was: the button stays at the
+  // same spot on screen instead of the page jumping up or down.
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const anchor = useRef<{ top: number; scrollY: number } | null>(null);
+  function toggle() {
+    const top = buttonRef.current?.getBoundingClientRect().top;
+    anchor.current = top === undefined ? null : { top, scrollY: window.scrollY };
+    setExpanded((v) => !v);
   }
-  useEffect(() => {
-    if (expanded || !scrollBack.current) return;
-    scrollBack.current = false;
-    const el = document.getElementById("realizacje");
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: "instant" });
+  useLayoutEffect(() => {
+    const a = anchor.current;
+    anchor.current = null;
+    if (!a || !buttonRef.current) return;
+    if (expanded) {
+      // New rows open below what the visitor is looking at.
+      window.scrollTo({ top: a.scrollY, behavior: "instant" });
+    } else {
+      // Rows close above the button: keep the button where it was on screen.
+      const shift = buttonRef.current.getBoundingClientRect().top - a.top;
+      if (shift) window.scrollBy({ top: shift, behavior: "instant" });
+    }
   }, [expanded]);
 
   return (
@@ -129,8 +138,9 @@ export function Gallery() {
               type="button"
               aria-expanded={expanded}
               aria-controls="realizacje-lista"
-              onClick={expanded ? collapse : () => setExpanded(true)}
-              className="btn btn-outline inline-flex h-11 items-center gap-2 px-6 text-sm font-semibold"
+              ref={buttonRef}
+              onClick={toggle}
+              className="btn btn-outline btn-noarrow inline-flex h-11 items-center gap-2 px-6 text-sm font-semibold"
             >
               {expanded ? "Zwiń realizacje" : `Pokaż wszystkie realizacje (${visible.length})`}
               <ChevronDown className={`size-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} aria-hidden />

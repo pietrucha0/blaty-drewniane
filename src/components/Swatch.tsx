@@ -10,12 +10,12 @@ export function swatchUrl(image: StaticImageData) {
 }
 
 // Crops the plain wood area out of a sample-board photo (board sits mid-frame).
-export function swatchStyle(image: StaticImageData, zoom = 3.2): CSSProperties {
+export function swatchStyle(image: StaticImageData, zoom = 3.2, x = 58): CSSProperties {
   return {
     backgroundColor: "var(--color-board)",
     backgroundImage: `url(${swatchUrl(image)})`,
     backgroundSize: `${zoom * 100}%`,
-    backgroundPosition: "58% 50%",
+    backgroundPosition: `${x}% 50%`,
   };
 }
 

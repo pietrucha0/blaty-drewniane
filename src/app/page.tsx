@@ -44,6 +44,7 @@ const jsonLd = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "14:00" },
   ],
   ...(company.mapsUrl ? { hasMap: company.mapsUrl } : {}),
+  sameAs: [company.social.instagram, company.social.facebook].filter(Boolean),
 };
 
 export default function Home() {

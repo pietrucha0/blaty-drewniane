@@ -182,3 +182,18 @@ body {
   height: 8px;
   mask-image: linear-gradient(90deg, #000 70%, transparent);
 }
+
+/* Clickable controls show the hand cursor (Tailwind resets buttons to the default arrow). */
+button:not(:disabled),
+[role="button"],
+[role="tab"],
+summary,
+select,
+label[for] {
+  cursor: pointer;
+}
+
+/* No dropdown arrow on the "Typ projektu" suggestion field. */
+input[list]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}

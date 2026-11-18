@@ -27,7 +27,7 @@ export const siteUrl = "https://www.blatydrewniane.eu";
 export const company = {
   brand: "BlatyDrewniane.eu",
   tagline: "naturalnie…",
-  legalName: "Archsys Krzysztof Wójcik",
+  legalName: "Krzysztof Wójcik",
   nip: "722-116-60-85",
   email: "info@blatydrewniane.eu",
   phones: [
@@ -43,10 +43,9 @@ export const company = {
     { days: "Poniedziałek – piątek", time: "9:00 – 16:00" },
     { days: "Sobota", time: "10:00 – 14:00" },
   ],
-  // TODO: uzupełnić adresy profili.
   social: {
-    instagram: null as string | null,
-    facebook: null as string | null,
+    instagram: "https://www.instagram.com/blatydrewniane_eu/" as string | null,
+    facebook: "https://www.facebook.com/profile.php?id=61596285148703" as string | null,
   },
 };
 
@@ -67,12 +66,14 @@ export type Species = {
   use: string;
   hardness: number; // 1–5, relative, for the sampler scale
   tone: number; // 1 jasny – 5 ciemny
+  swatchX?: number; // horizontal crop (%) for swatches when the board is off-centre in the photo
 };
 
 // Photos: real sample boards from meblekw.pl.
 export const species: Species[] = [
   {
     id: "dab",
+    swatchX: 46, // board sits left of centre; 58% would show its darker end grain
     name: "Dąb",
     origin: "Drewno krajowe",
     image: dabImg,
