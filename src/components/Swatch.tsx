@@ -4,6 +4,7 @@ import type { StaticImageData } from "next/image";
 // Small optimized copy of a sample-board photo for swatches and the wood cursor
 // (the originals are ~250 KB each and would compete with the hero image).
 export function swatchUrl(image: StaticImageData) {
+  if (process.env.NEXT_PUBLIC_STATIC_EXPORT) return image.src; // no image server on FTP hosting
   return `/_next/image?url=${encodeURIComponent(image.src)}&w=384&q=60`;
 }
 

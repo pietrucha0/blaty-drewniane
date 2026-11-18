@@ -25,6 +25,10 @@ The quote form sends submissions through [Web3Forms](https://web3forms.com):
 
 Without a key, the form falls back to `/api/wycena`, which forwards submissions to `QUOTE_WEBHOOK_URL` if that is set. If neither is set, visitors are offered a pre-filled e-mail and the phone number instead.
 
+## FTP hosting
+
+`npm run build:ftp` builds the site as plain files in `out/`. Upload the contents of `out/` (not the folder itself) to the web root on the server, e.g. `public_html`, with an FTP client such as FileZilla. This build has no `/api` route; the quote form works through Web3Forms.
+
 ## Content
 
 All copy and data live in `src/lib/content.ts`. Items marked `TODO` still need confirming: workshop address, WhatsApp number, social profiles.
