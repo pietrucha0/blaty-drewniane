@@ -1,0 +1,15 @@
+# meblekw.pl -> https://www.blatydrewniane.eu
+# The old shop (Blaty Drewniane - sklep) has moved to the new site.
+# Upload to /domains/meblekw.pl/public_html/ (replace the old .htaccess,
+# keep a copy of it). To undo: put the old .htaccess back.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep SSL certificate renewal and Google verification working.
+  RewriteRule ^\.well-known/ - [L]
+  RewriteRule ^google[0-9a-f]+\.html$ - [L]
+
+  # Everything else: permanent redirect to the new home page.
+  RewriteRule ^ https://www.blatydrewniane.eu/? [R=301,L]
+</IfModule>
