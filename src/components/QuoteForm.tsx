@@ -5,7 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, LoaderCircle, Mail, Send } from "lucide-react";
 import { company, projectTypes } from "@/lib/content";
 
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+// Public Web3Forms access key (safe to ship); an env var can override it.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "88951f72-fae2-457a-893a-5d446eccdaa7";
 
 type Status ="idle" | "sending" | "sent" | "fallback" | "error";
 type Errors = Partial<Record<"name" | "phone" | "type" | "message", string>>;
