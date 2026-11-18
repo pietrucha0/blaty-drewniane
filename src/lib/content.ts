@@ -22,6 +22,8 @@ import stolikKawowyImg from "../../public/images/stock/stolik-kawowy.webp";
 // Single source of truth for site copy and data.
 // Fields marked TODO are placeholders the owner must confirm or replace.
 
+export const siteUrl = "https://www.blatydrewniane.eu";
+
 export const company = {
   brand: "BlatyDrewniane.eu",
   tagline: "naturalnie…",

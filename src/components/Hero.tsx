@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { species } from "@/lib/content";
 import heroImg from "../../public/images/stock/hero-krawedz.webp";
-import { selectSpecies, swatchStyle } from "./Swatch";
+import { selectSpecies, swatchStyle, swatchUrl } from "./Swatch";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   const rise = (delay: number) => ({
-    initial: { opacity: 0.35, y: 18 },
-    animate: { opacity: 1, y: 0 },
+    initial: { y: 18 },
+    animate: { y: 0 },
     transition: { duration: 0.9, delay, ease },
   });
 
@@ -97,7 +97,7 @@ export function Hero() {
                   href="#gatunki"
                   onClick={() => selectSpecies(s.id)}
                   data-cursor="wood"
-                  data-wood={s.image.src}
+                  data-wood={swatchUrl(s.image)}
                   className="group relative flex h-16 items-end overflow-hidden shadow-[0_6px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out-expo hover:-translate-x-3"
                   style={swatchStyle(s.image)}
                 >
@@ -122,7 +122,7 @@ export function Hero() {
                 href="#gatunki"
                 onClick={() => selectSpecies(s.id)}
                 data-cursor="wood"
-                data-wood={s.image.src}
+                data-wood={swatchUrl(s.image)}
                 className="relative flex h-12 w-32 items-end overflow-hidden"
                 style={swatchStyle(s.image, 4)}
               >

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
-// Content is visible by default; motion only adds a short settle as it enters.
+// Content stays fully opaque (keeps text contrast intact); motion only adds a short settle as it enters.
 export function Reveal({
   children,
   delay = 0,
@@ -16,8 +16,8 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0.6, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 18 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
     >
