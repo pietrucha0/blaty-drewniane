@@ -73,7 +73,7 @@ export type Species = {
 export const species: Species[] = [
   {
     id: "dab",
-    swatchX: 46, // board sits left of centre; 58% would show its darker end grain
+    swatchX: 47, // board face spans ~30–67% of the photo; this centres swatches on it, clear of the dark side
     name: "Dąb",
     origin: "Drewno krajowe",
     image: dabImg,
@@ -85,6 +85,7 @@ export const species: Species[] = [
   },
   {
     id: "jesion",
+    swatchX: 48, // keep clear of the stones at the board's right edge
     name: "Jesion",
     origin: "Drewno krajowe",
     image: jesionImg,
@@ -96,6 +97,7 @@ export const species: Species[] = [
   },
   {
     id: "orzech",
+    swatchX: 50,
     name: "Orzech amerykański",
     origin: "Ameryka Północna",
     image: orzechImg,

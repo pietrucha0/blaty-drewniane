@@ -99,11 +99,11 @@ export function Hero() {
                   data-cursor="wood"
                   data-wood={swatchUrl(s.image)}
                   data-wood-x={s.swatchX}
-                  className="group relative flex h-16 items-end overflow-hidden shadow-[0_6px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out-expo hover:-translate-x-3"
+                  className="group relative flex h-16 items-center overflow-hidden shadow-[0_6px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out-expo hover:-translate-x-3"
                   style={swatchStyle(s.image, undefined, s.swatchX)}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-espresso/75 via-espresso/10 to-transparent" />
-                  <span className="relative flex w-full items-baseline justify-between px-4 pb-2.5">
+                  <span className="relative flex w-full items-center justify-between px-4">
                     <span className="font-display text-lg font-medium text-cream">{s.name}</span>
                     <ArrowRight className="size-4 text-cream opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
                   </span>

@@ -193,6 +193,11 @@ label[for] {
   cursor: pointer;
 }
 
+/* Species tabs already show the selected one with a brass frame; no extra focus ring around it. */
+[role="tab"]:focus-visible {
+  outline: none;
+}
+
 /* No dropdown arrow on the "Typ projektu" suggestion field. */
 input[list]::-webkit-calendar-picker-indicator {
   display: none !important;
