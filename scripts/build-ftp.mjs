@@ -50,7 +50,8 @@ writeFileSync(
 
   # Pages of the old shop (e.g. /blaty-z-drewna-egzotycznego-c-1.html,
   # /product_info.php) are still in Google: send them to the new home page.
-  RewriteCond %{REQUEST_URI} !^/(index|404)\\.html$
+  # Google Search Console verification files (google<code>.html) are left alone.
+  RewriteCond %{REQUEST_URI} !^/(index|404|google[0-9a-f]+)\\.html$
   RewriteRule ^[^/]+\\.(html?|php)$ https://www.blatydrewniane.eu/? [R=301,L]
 </IfModule>
 
