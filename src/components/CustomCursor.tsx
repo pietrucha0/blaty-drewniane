@@ -15,7 +15,6 @@ export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [kind, setKind] = useState<Kind>(null);
   const [wood, setWood] = useState<string | null>(null);
-  const [woodX, setWoodX] = useState("58");
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -46,10 +45,7 @@ export function CustomCursor() {
       const el = target?.closest<HTMLElement>("[data-cursor]");
       const k = (el?.dataset.cursor as Kind) ?? null;
       setKind(k);
-      if (k === "wood") {
-        setWood(el?.dataset.wood ?? null);
-        setWoodX(el?.dataset.woodX ?? "58");
-      }
+      if (k === "wood") setWood(el?.dataset.wood ?? null);
     };
 
     const paint = () => {
@@ -90,8 +86,8 @@ export function CustomCursor() {
         }`}
         style={{
           backgroundImage: wood ? `url(${wood})` : undefined,
-          backgroundSize: "420%",
-          backgroundPosition: `${woodX}% 50%`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
       <div

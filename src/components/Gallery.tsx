@@ -118,11 +118,6 @@ export function Gallery() {
                     {p.title}
                   </h3>
                 </div>
-                {p.placeholder && (
-                  <span className="absolute right-0 top-0 hidden bg-espresso/80 px-2 py-1 text-[0.7rem] text-dust sm:block">
-                    Poglądowe
-                  </span>
-                )}
               </motion.li>
             ))}
         </ul>
@@ -146,7 +141,6 @@ export function Gallery() {
               <ChevronDown className={`size-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} aria-hidden />
             </button>
           )}
-          <p className="text-sm text-dust">Część zdjęć jest poglądowa.</p>
         </div>
       </div>
     </section>

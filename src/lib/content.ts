@@ -15,6 +15,11 @@ import szafaSkosImg from "../../public/images/real/szafa-skos.webp";
 import orzechImg from "../../public/images/real/orzech.webp";
 import tatajubaImg from "../../public/images/real/tatajuba.webp";
 import tauariImg from "../../public/images/real/tauari.webp";
+import dabSwatch from "../../public/images/swatch/dab.webp";
+import jesionSwatch from "../../public/images/swatch/jesion.webp";
+import orzechSwatch from "../../public/images/swatch/orzech.webp";
+import tatajubaSwatch from "../../public/images/swatch/tatajuba.webp";
+import tauariSwatch from "../../public/images/swatch/tauari.webp";
 import biurkoZabudowaImg from "../../public/images/stock/biurko-zabudowa.webp";
 import stolOrzechImg from "../../public/images/stock/stol-orzech.webp";
 import stolikKawowyImg from "../../public/images/stock/stolik-kawowy.webp";
@@ -66,17 +71,17 @@ export type Species = {
   use: string;
   hardness: number; // 1–5, relative, for the sampler scale
   tone: number; // 1 jasny – 5 ciemny
-  swatchX?: number; // horizontal crop (%) for swatches when the board is off-centre in the photo
+  swatch: StaticImageData; // clean square of board face, same scale for every species
 };
 
 // Photos: real sample boards from meblekw.pl.
 export const species: Species[] = [
   {
     id: "dab",
-    swatchX: 47, // board face spans ~30–67% of the photo; this centres swatches on it, clear of the dark side
     name: "Dąb",
     origin: "Drewno krajowe",
     image: dabImg,
+    swatch: dabSwatch,
     character:
       "Twardy, ciężki i odporny na ścieranie.",
     use: "Blaty kuchenne, stoły, schody, fronty meblowe.",
@@ -85,10 +90,10 @@ export const species: Species[] = [
   },
   {
     id: "jesion",
-    swatchX: 48, // keep clear of the stones at the board's right edge
     name: "Jesion",
     origin: "Drewno krajowe",
     image: jesionImg,
+    swatch: jesionSwatch,
     character:
       "Twardy i elastyczny, jasny, z wyrazistym słojem.",
     use: "Blaty, konsole, stoły, regały.",
@@ -97,10 +102,10 @@ export const species: Species[] = [
   },
   {
     id: "orzech",
-    swatchX: 50,
     name: "Orzech amerykański",
     origin: "Ameryka Północna",
     image: orzechImg,
+    swatch: orzechSwatch,
     character:
       "Ciepła, czekoladowa twardziel i szlachetny, gęsty rysunek.",
     use: "Stoły, blaty wysp, meble do salonu.",
@@ -112,6 +117,7 @@ export const species: Species[] = [
     name: "Tatajuba",
     origin: "Drewno egzotyczne, Ameryka Południowa",
     image: tatajubaImg,
+    swatch: tatajubaSwatch,
     character:
       "Złocisto-brązowe drewno, które pod wpływem światła ciemnieje do głębokiego miodowego odcienia.",
     use: "Blaty kuchenne i łazienkowe, parapety.",
@@ -123,6 +129,7 @@ export const species: Species[] = [
     name: "Tauari",
     origin: "Drewno egzotyczne, Ameryka Południowa",
     image: tauariImg,
+    swatch: tauariSwatch,
     character:
       "Jasne, kremowo-beżowe drewno o drobnym, równym usłojeniu.",
     use: "Blaty, parapety, elementy wnętrz.",

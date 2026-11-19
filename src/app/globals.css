@@ -202,3 +202,10 @@ label[for] {
 input[list]::-webkit-calendar-picker-indicator {
   display: none !important;
 }
+
+/* On phones sections don't slide in while scrolling: the small upward jump felt like the page twitching. */
+@media (max-width: 767px) {
+  [data-reveal] {
+    transform: none !important;
+  }
+}

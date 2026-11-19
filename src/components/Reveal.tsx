@@ -15,6 +15,7 @@ export function Reveal({
 }) {
   return (
     <motion.div
+      data-reveal
       className={className}
       initial={{ y: 18 }}
       whileInView={{ y: 0 }}

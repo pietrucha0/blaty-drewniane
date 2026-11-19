@@ -29,9 +29,6 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[70%_72%] lg:object-[80%_55%]"
         />
-        <span className="absolute right-0 top-16 bg-espresso/80 px-2 py-1 text-[0.7rem] text-dust sm:top-20 lg:bottom-0 lg:top-auto">
-          Zdjęcie poglądowe
-        </span>
       </div>
       <div
         aria-hidden
@@ -97,10 +94,9 @@ export function Hero() {
                   href="#gatunki"
                   onClick={() => selectSpecies(s.id)}
                   data-cursor="wood"
-                  data-wood={swatchUrl(s.image)}
-                  data-wood-x={s.swatchX}
+                  data-wood={swatchUrl(s.swatch)}
                   className="group relative flex h-16 items-center overflow-hidden shadow-[0_6px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out-expo hover:-translate-x-3"
-                  style={swatchStyle(s.image, undefined, s.swatchX)}
+                  style={swatchStyle(s.swatch)}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-espresso/75 via-espresso/10 to-transparent" />
                   <span className="relative flex w-full items-center justify-between px-4">
@@ -123,10 +119,9 @@ export function Hero() {
                 href="#gatunki"
                 onClick={() => selectSpecies(s.id)}
                 data-cursor="wood"
-                data-wood={swatchUrl(s.image)}
-                  data-wood-x={s.swatchX}
+                data-wood={swatchUrl(s.swatch)}
                 className="relative flex h-12 w-32 items-end overflow-hidden"
-                style={swatchStyle(s.image, 4, s.swatchX)}
+                style={swatchStyle(s.swatch)}
               >
                 <span className="absolute inset-0 bg-gradient-to-t from-espresso/80 to-transparent" />
                 <span className="relative px-2.5 pb-1.5 text-sm font-medium text-cream">{s.name}</span>

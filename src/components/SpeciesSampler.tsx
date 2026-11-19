@@ -68,14 +68,13 @@ export function SpeciesSampler() {
                     aria-controls="species-panel"
                     onClick={() => setActiveId(s.id)}
                     data-cursor="wood"
-                    data-wood={swatchUrl(s.image)}
-                  data-wood-x={s.swatchX}
+                    data-wood={swatchUrl(s.swatch)}
                     className={`group relative flex h-14 w-full shrink-0 items-end sm:w-36 overflow-hidden text-left transition-[transform,box-shadow] duration-500 ease-out-expo lg:w-full ${
                       selected
                         ? "shadow-[inset_0_0_0_2px_var(--color-brass)] lg:translate-x-3 lg:shadow-[inset_0_0_0_2px_var(--color-brass),0_8px_20px_rgba(0,0,0,0.5)]"
                         : "opacity-80 hover:opacity-100"
                     }`}
-                    style={swatchStyle(s.image, 3.6, s.swatchX)}
+                    style={swatchStyle(s.swatch)}
                   >
                     <span className="absolute inset-0 hidden bg-gradient-to-r from-espresso/80 to-espresso/0 sm:block" />
                     <span className="sr-only sm:not-sr-only sm:relative sm:px-3 sm:pb-2 sm:font-display sm:font-medium sm:text-cream">{s.name}</span>

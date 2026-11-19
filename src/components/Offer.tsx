@@ -33,7 +33,6 @@ export function Offer() {
                   className="object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.04]"
                 />
                 <ZoomButton item={{ image: lead.image, alt: lead.imageAlt, title: lead.title, placeholder: lead.placeholder }} />
-                {lead.placeholder && <Placeholder />}
               </div>
               <div className="pt-4 sm:p-8 lg:pr-12">
                 <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-cream sm:text-4xl">
@@ -58,7 +57,6 @@ export function Offer() {
                     className="object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.06]"
                   />
                   <ZoomButton item={{ image: o.image, alt: o.imageAlt, title: o.title, placeholder: o.placeholder }} />
-                  {o.placeholder && <Placeholder />}
                 </div>
                 <div className="pt-4 sm:p-6">
                   <h3 className="font-display text-xl font-semibold text-cream sm:text-2xl">{o.title}</h3>
@@ -73,7 +71,7 @@ export function Offer() {
           <div className="w-[80%] shrink-0 snap-start bg-board sm:w-auto lg:col-span-4">
             <a
               href="#kontakt"
-              className="group flex aspect-[4/5] h-full flex-col justify-between p-6 sm:aspect-auto sm:min-h-56 sm:p-8"
+              className="group flex aspect-[4/5] h-full w-full flex-col justify-between p-6 sm:aspect-auto sm:min-h-56 sm:p-8"
             >
               <span className="font-display text-sm font-medium uppercase tracking-[0.18em] text-brass">Na wymiar</span>
               <span>
@@ -92,7 +90,7 @@ export function Offer() {
           </div>
         </div>
         </Reveal>
-        <p className="mt-6 text-sm text-dust sm:hidden">Przesuń, żeby zobaczyć więcej. Część zdjęć jest poglądowa.</p>
+        <p className="mt-6 text-sm text-dust sm:hidden">Przesuń, żeby zobaczyć więcej.</p>
       </div>
     </section>
   );
@@ -107,13 +105,5 @@ function Tags({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-function Placeholder() {
-  return (
-    <span className="absolute left-0 top-0 hidden bg-espresso/85 px-2.5 py-1 text-xs text-dust sm:block">
-      Zdjęcie poglądowe
-    </span>
   );
 }

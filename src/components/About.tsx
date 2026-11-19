@@ -20,9 +20,6 @@ export function About() {
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover"
             />
-            <figcaption className="absolute bottom-0 left-0 bg-espresso/85 px-3 py-1.5 text-xs text-dust">
-              Zdjęcie poglądowe
-            </figcaption>
           </figure>
         </Reveal>
 

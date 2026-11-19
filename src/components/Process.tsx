@@ -20,7 +20,7 @@ export function Process() {
                 key={s.title}
                 className="relative grid grid-cols-[3.5rem_1fr] border-l border-seam pb-9 pl-0 last:pb-0 sm:pb-12 lg:block lg:border-l-0 lg:border-t lg:pb-0 lg:pt-6"
               >
-                <span className="relative -ml-px flex size-10 -translate-x-1/2 items-center justify-center bg-espresso font-display text-2xl font-semibold text-brass lg:ml-0 lg:size-auto lg:translate-x-0 lg:justify-start lg:pr-4">
+                <span className="relative -ml-px flex h-7 w-10 -translate-x-1/2 items-center justify-center bg-espresso font-display text-2xl font-semibold leading-none text-brass sm:h-8 lg:ml-0 lg:size-auto lg:translate-x-0 lg:justify-start lg:pr-4">
                   {i + 1}
                 </span>
                 <div className="lg:mt-8">

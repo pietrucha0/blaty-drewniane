@@ -86,7 +86,7 @@ export function Lightbox() {
           <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
             <span className="font-display text-xl font-medium text-cream sm:text-2xl">{item.title}</span>
             <span className="text-sm text-dust">
-              {[item.wood, item.placeholder ? "Zdjęcie poglądowe" : null].filter(Boolean).join(" · ")}
+              {item.wood}
             </span>
           </figcaption>
         </figure>
